@@ -12,7 +12,7 @@ const writeUserData = user => {
 const getUserData = setUsers => {
   let ref = fire.database().ref('/users')
   ref.on('value', snapshot => {
-		const state = snapshot.val()
+    const state = snapshot.val()
     setUsers(state || [])
   })
 }
@@ -22,15 +22,18 @@ export const RSVPScreen = () => {
 
   useEffect(() => {
     getUserData(setUsers)
-	}, [])
+  }, [])
 
-	const userList = Object.values(users)
+  const userList = Object.values(users)
 
   return (
     <div>
       <ul>
-        {userList && userList.length > 0 &&
-          Object.entries(users).map(([uid, {name}]) => <li key={uid}>{name}</li>)}
+        {userList &&
+          userList.length > 0 &&
+          Object.entries(users).map(([uid, {name}]) => (
+            <li key={uid}>{name}</li>
+          ))}
       </ul>
 
       <Form
@@ -43,7 +46,7 @@ export const RSVPScreen = () => {
               type="text"
               placeholder="name"
             />
-						<button type="submit">SAVE</button>
+            <button type="submit">SAVE</button>
           </form>
         )}
       />
