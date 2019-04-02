@@ -1,3 +1,8 @@
-import React from 'react';
+import React from 'react'
+import {RSVPScreen} from './RSVP/RSVPScreen'
 
-export const App = () => <div>Magaly & Arnaud</div>
+export const App = () => (
+  <>
+    <RSVPScreen />
+  </>
+)
