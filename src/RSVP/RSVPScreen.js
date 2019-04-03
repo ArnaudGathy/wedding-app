@@ -1,43 +1,25 @@
-import React, {useEffect, useState} from 'react'
-import fire from '../firebase'
+import React from 'react'
 import {Form, Field} from 'react-final-form'
-
-const writeUserData = user => {
-  fire
-    .database()
-    .ref('/users')
-    .push(user)
-}
-
-const getUserData = setUsers => {
-  let ref = fire.database().ref('/users')
-  ref.on('value', snapshot => {
-    const state = snapshot.val()
-    setUsers(state || [])
-  })
-}
+import {useFirebase} from '../hooks/useFirebase'
+import {Spinner} from '../style/spinner'
 
 export const RSVPScreen = () => {
-  const [users, setUsers] = useState({})
-
-  useEffect(() => {
-    getUserData(setUsers)
-  }, [])
-
-  const userList = Object.values(users)
+  const [users, addUser] = useFirebase()
 
   return (
     <div>
       <ul>
-        {userList &&
-          userList.length > 0 &&
+        {Object.values(users).length > 0 ? (
           Object.entries(users).map(([uid, {name}]) => (
             <li key={uid}>{name}</li>
-          ))}
+          ))
+        ) : (
+          <Spinner />
+        )}
       </ul>
 
       <Form
-        onSubmit={writeUserData}
+        onSubmit={addUser}
         render={({handleSubmit}) => (
           <form onSubmit={handleSubmit}>
             <Field
