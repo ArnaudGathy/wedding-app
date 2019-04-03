@@ -4,14 +4,16 @@ import {useFirebase} from '../hooks/useFirebase'
 import {Spinner} from '../style/spinner'
 
 export const RSVPScreen = () => {
-  const [users, addUser] = useFirebase()
+  const [users, addUser, removeUser] = useFirebase()
 
   return (
     <div>
       <ul>
         {Object.values(users).length > 0 ? (
           Object.entries(users).map(([uid, {name}]) => (
-            <li key={uid}>{name}</li>
+            <li key={uid}>
+              {name} <button onClick={() => removeUser(uid)}>x</button>
+            </li>
           ))
         ) : (
           <Spinner />
