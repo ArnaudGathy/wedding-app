@@ -1,8 +1,9 @@
 import React from 'react'
-import {RSVPScreen} from './RSVP/RSVPScreen'
+import {BrowserRouter as Router} from 'react-router-dom'
+import {Routes} from './routes/Routes'
 
 export const App = () => (
-  <>
-    <RSVPScreen />
-  </>
+  <Router>
+    <Routes />
+  </Router>
 )

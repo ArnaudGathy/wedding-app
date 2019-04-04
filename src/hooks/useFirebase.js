@@ -1,22 +1,22 @@
 import {useEffect, useState} from 'react'
-import fire from '../firebase'
+import {firebaseApp} from '../firebase'
 
 export const useFirebase = () => {
   const addUser = user =>
-    fire
+  firebaseApp
       .database()
       .ref('/users')
       .push(user)
 
   const removeUser = uid =>
-    fire
+  firebaseApp
       .database()
       .ref(`/users/${uid}`)
       .remove()
 
   const [users, setUsers] = useState({})
   useEffect(() => {
-    fire
+    firebaseApp
       .database()
       .ref('/users')
       .on('value', snapshot => setUsers(snapshot.val()))
