@@ -4,7 +4,7 @@ import {useFirebase} from '../hooks/useFirebase'
 import {Spinner} from '../style/spinner'
 
 export const RSVPScreen = () => {
-  const [users, addUser, removeUser] = useFirebase()
+  const [users, addUser, removeUser] = useFirebase('/attendees')
 
   return (
     <div>
