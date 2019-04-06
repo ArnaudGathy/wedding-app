@@ -4,6 +4,6 @@ import {Routes} from './routes/Routes'
 
 export const App = () => (
   <Router>
-    <Routes />
+      <Routes />
   </Router>
 )

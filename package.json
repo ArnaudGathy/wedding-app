@@ -14,11 +14,16 @@
     "final-form": "4.12.0",
     "react-router-dom": "5.0.0"
   },
+  "devDependencies": {
+    "firebase-bolt": "0.8.4",
+    "firebase-tools": "6.5.3"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy:db": "firebase deploy --only database --project wedding-app-16282"
   },
   "eslintConfig": {
     "extends": "react-app"

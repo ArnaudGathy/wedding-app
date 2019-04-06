@@ -6,5 +6,5 @@ export const useAuth = () => {
   const authObserver = cb => firebase.auth().onAuthStateChanged(cb)
   const logOut = () => firebase.auth().signOut()
 
-  return [authObserver, login, logOut]
+  return {authObserver, login, logOut}
 }

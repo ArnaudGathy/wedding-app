@@ -1,0 +1,8 @@
+path / {
+  read(){ isAuthorized() }
+  write(){ isAuthorized() }o
+}
+
+isAuthorized() {
+  auth != null && (auth.email == 'arno.firefox@gmail.com' || auth.email == 'fernandezgarciamagaly@gmail.com')
+}
