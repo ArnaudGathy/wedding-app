@@ -1,6 +1,6 @@
 path / {
   read(){ isAuthorized() }
-  write(){ isAuthorized() }o
+  write(){ isAuthorized() }
 }
 
 isAuthorized() {
