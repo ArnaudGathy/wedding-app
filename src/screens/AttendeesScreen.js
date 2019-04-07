@@ -9,6 +9,16 @@ const Row = styled.tr`
     status === undefined ? '#fce5cd' : status ? '#d9ead3' : '#f4cccc'};
 `
 
+const checkBox = ({title, input: {onChange, value}, ...rest}) => (
+  <>
+    <label className="checkbox">
+      <input type="checkbox" onClick={() => onChange(false)} {...rest} />
+      {title}
+    </label>
+    <br />
+  </>
+)
+
 export const AttendeesScreen = () => {
   const {entities, addEntity, removeEntity} = useFirebase({
     ref: '/attendees',
@@ -57,9 +67,18 @@ export const AttendeesScreen = () => {
       <div>
         <Form
           onSubmit={data => addEntity({...data})}
-          initialValues={{invitation: {house: false, ceremony: false, wine: false, dinner: false, activities: false}}}
-          render={({handleSubmit}) => (
+          // initialValues={{
+          //   invitation: {
+          //     house: null,
+          //     ceremony: null,
+          //     wine: null,
+          //     dinner: null,
+          //     activities: null,
+          //   },
+          // }}
+          render={({handleSubmit, values}) => (
             <form onSubmit={handleSubmit}>
+              {console.log(values)}
               <Field
                 name="name"
                 component="input"
@@ -74,32 +93,37 @@ export const AttendeesScreen = () => {
                 placeholder="Code Name"
               />
               <br />
-              <label className="checkbox">
-                <Field name="invitation.house" component="input" type="checkbox" />
-                Commune
-              </label>
-              <br />
-              <label className="checkbox">
-                <Field name="invitation.ceremony" component="input" type="checkbox" />
-                Cérémonie laïque
-              </label>
-              <br />
-              <label className="checkbox">
-                <Field name="invitation.wine" component="input" type="checkbox" />
-                Vin d'honneur
-              </label>
-              <br />
-              <label className="checkbox">
-                <Field name="invitation.dinner" component="input" type="checkbox" />
-                Diner
-              </label>
-              <br />
-              <label className="checkbox">
-                <Field name="invitation.activities" component="input" type="checkbox" />
-                Activités
-              </label>
+              <Field
+                name="invitation.house"
+                component={checkBox}
+                type="checkbox"
+                title="Commune"
+              />
+              <Field
+                name="invitation.ceremony"
+                component={checkBox}
+                type="checkbox"
+                title="Cérémonie Laïque"
+              />
+              <Field
+                name="invitation.wine"
+                component={checkBox}
+                type="checkbox"
+                title="Vin d'honneur"
+              />
+              <Field
+                name="invitation.dinner"
+                component={checkBox}
+                type="checkbox"
+                title="Dîner"
+              />
+              <Field
+                name="invitation.activities"
+                component={checkBox}
+                type="checkbox"
+                title="Activités"
+              />
 
-              <br />
               <button className="button is-warning is-small" type="submit">
                 Add
               </button>

@@ -69,9 +69,11 @@ export const RSVPScreen = ({match: {params}}) => {
           if (!data.attending || step === 2) {
             setStep(3)
             const value =
-              data.attending === false && attendee.attending === true
+              data.attending === false
                 ? {name: attendee.name, code: attendee.code, attending: false}
-                : {name: attendee.name, code: attendee.code, ...data}
+                : data.hasGuest
+                ? {name: attendee.name, code: attendee.code, ...data}
+                : {name: attendee.name, code: attendee.code, attending: true}
             return updateEntity({
               uid: attendee.uid,
               value,
