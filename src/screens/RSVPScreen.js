@@ -194,7 +194,7 @@ export const RSVPScreen = ({match: {params}}) => {
             <br />
             {[1, 2, 3].includes(step) && (
               <ButtonContainer>
-                {[2, 3].includes(step) && (
+                {[1, 2, 3].includes(step) && (
                   <div>
                     <button
                       type="button"
