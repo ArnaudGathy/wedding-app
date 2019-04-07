@@ -87,7 +87,7 @@ export const AdminScreen = () => {
           <h1 className="title">Bridegrooms allowed only</h1>
           {isWrongAddress && (
             <>
-              <img src={seriouscat} /> <br />
+              <img src={seriouscat} alt="Serious cat"/> <br />
             </>
           )}
           <button className="button is-large is-light" onClick={login}>
