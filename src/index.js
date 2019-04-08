@@ -4,6 +4,7 @@ import {App} from './App'
 import {firebaseConfig} from './firebaseConfig'
 import firebase from 'firebase/app'
 import 'bulma/css/bulma.css'
+import './style/index.css';
 require('dotenv').config()
 
 firebase.initializeApp(firebaseConfig)
