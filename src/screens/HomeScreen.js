@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import am from '../assets/images/am.jpg'
 import heart from '../assets/images/heart.svg'
 import Countdown from 'react-countdown-now'
+import {Chevron} from '../components/Chevron'
 
 export const fonts = {
   raleway: '"Raleway", sans-serif',
@@ -27,13 +28,15 @@ const MainBannerStripes = styled.div`
   width: 100vw;
   background: repeating-linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.3) 1px,
-    rgba(0, 0, 0, 0.5) 1px,
-    rgba(0, 0, 0, 0.5) 2px
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4) 1px,
+    rgba(0, 0, 0, 0.6) 1px,
+    rgba(0, 0, 0, 0.6) 2px
   );
+`
 
-
+const MainBlock = styled.div`
+  width: 60%;
   font-family: ${fonts.raleway};
   color: white;
 `
@@ -42,11 +45,16 @@ const MainHeartBlock = styled.div`
   background: url(${heart}) no-repeat center center transparent;
   background-size: contain;
   opacity: 0.3;
-  margin: 0 auto;
-  width: 100%;
+  width: 60%;
   height: 380px;
   position: absolute;
-  top: 220px;
+`
+
+const MainInfoBlock = styled.div`
+  padding-top: 20px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 `
 
 const WeddingBlock = styled.div`
@@ -86,7 +94,7 @@ const MomentTitle = styled.div`
 `
 const MomentValue = styled.div`
   font-family: ${fonts.raleway};
-  font-weight: 400;
+  font-weight: 500;
   font-size: 3rem;
 `
 
@@ -101,26 +109,32 @@ export const HomeScreen = () => (
   <div>
     <MainBanner>
       <MainBannerStripes>
-        <MainHeartBlock />
-        <WeddingBlock>Mariage</WeddingBlock>
-        <NameBlock>
-          <div>Magaly & Arnaud</div>
-        </NameBlock>
-        <DateBlock>5 Octobre 2019</DateBlock>
+        <MainBlock>
+          <MainHeartBlock />
+          <MainInfoBlock>
+            <WeddingBlock>Mariage</WeddingBlock>
+            <NameBlock>
+              <div>Magaly & Arnaud</div>
+            </NameBlock>
+            <DateBlock>5 Octobre 2019</DateBlock>
 
-        <Countdown
-          date={new Date('2019-10-05T11:00:00')}
-          renderer={({days, hours, minutes, seconds}) => (
-            <CountDownBlock>
-              <CountDownPart value={days} title="jours" />
-              <CountDownPart value={hours} title="heures" />
-              <CountDownPart value={minutes} title="minutes" />
-              <CountDownPart value={seconds} title="secondes" />
-            </CountDownBlock>
-          )}
-        />
+            <Countdown
+              date={new Date('2019-10-05T11:00:00')}
+              renderer={({days, hours, minutes, seconds}) => (
+                <CountDownBlock>
+                  <CountDownPart value={days} title="jours" />
+                  <CountDownPart value={hours} title="heures" />
+                  <CountDownPart value={minutes} title="minutes" />
+                  <CountDownPart value={seconds} title="secondes" />
+                </CountDownBlock>
+              )}
+            />
+            <Chevron />
+          </MainInfoBlock>
+        </MainBlock>
       </MainBannerStripes>
     </MainBanner>
     <div>zizi</div>
+    <div />
   </div>
 )
