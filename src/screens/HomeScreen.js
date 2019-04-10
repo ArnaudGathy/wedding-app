@@ -4,12 +4,24 @@ import am from '../assets/images/am.jpg'
 import heart from '../assets/images/heart.svg'
 import Countdown from 'react-countdown-now'
 import {Chevron} from '../components/Chevron'
+import {Navbar} from '../components/Navbar'
 
 export const fonts = {
   raleway: '"Raleway", sans-serif',
   roboto: '"Roboto", sans-serif',
   dancing: '"Dancing Script", sans-serif',
+  default:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
 }
+
+export const colors = {
+  pink: 'rgb(222, 3, 127)',
+}
+
+const Container = styled.div`
+  font-size: 1rem;
+  font-family: ${fonts.default};
+`
 
 const MainBanner = styled.div`
   height: 100vh;
@@ -62,7 +74,7 @@ const WeddingBlock = styled.div`
   font-size: 4rem;
 
   ::first-letter {
-    color: rgb(222, 3, 127);
+    color: ${colors.pink};
   }
 `
 
@@ -98,6 +110,10 @@ const MomentValue = styled.div`
   font-size: 3rem;
 `
 
+const Fakediv = styled.div`
+    height: 1500px;
+`
+
 const CountDownPart = ({value, title}) => (
   <MomentContainer>
     <MomentValue>{value}</MomentValue>
@@ -106,8 +122,8 @@ const CountDownPart = ({value, title}) => (
 )
 
 export const HomeScreen = () => (
-  <div>
-    <MainBanner>
+  <Container>
+    <MainBanner id='home'>
       <MainBannerStripes>
         <MainBlock>
           <MainHeartBlock />
@@ -134,7 +150,12 @@ export const HomeScreen = () => (
         </MainBlock>
       </MainBannerStripes>
     </MainBanner>
-    <div>zizi</div>
-    <div />
-  </div>
+    <Navbar />
+    <Fakediv id="number2">
+      ZBI
+    </Fakediv>
+    <Fakediv id="number3">
+      HELLOU
+    </Fakediv>
+  </Container>
 )
