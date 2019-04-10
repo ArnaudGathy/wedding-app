@@ -5,18 +5,9 @@ import heart from '../assets/images/heart.svg'
 import Countdown from 'react-countdown-now'
 import {Chevron} from '../components/Chevron'
 import {Navbar} from '../components/Navbar'
-
-export const fonts = {
-  raleway: '"Raleway", sans-serif',
-  roboto: '"Roboto", sans-serif',
-  dancing: '"Dancing Script", sans-serif',
-  default:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
-}
-
-export const colors = {
-  pink: 'rgb(222, 3, 127)',
-}
+import {Section} from '../components/Section'
+import {fonts} from '../assets/constants/fonts'
+import {colors} from '../assets/constants/colors'
 
 const Container = styled.div`
   font-size: 1rem;
@@ -111,7 +102,8 @@ const MomentValue = styled.div`
 `
 
 const Fakediv = styled.div`
-    height: 1500px;
+  height: 400px;
+  background-color: tomato;
 `
 
 const CountDownPart = ({value, title}) => (
@@ -123,7 +115,7 @@ const CountDownPart = ({value, title}) => (
 
 export const HomeScreen = () => (
   <Container>
-    <MainBanner id='home'>
+    <MainBanner id="home">
       <MainBannerStripes>
         <MainBlock>
           <MainHeartBlock />
@@ -151,11 +143,14 @@ export const HomeScreen = () => (
       </MainBannerStripes>
     </MainBanner>
     <Navbar />
-    <Fakediv id="number2">
-      ZBI
-    </Fakediv>
-    <Fakediv id="number3">
-      HELLOU
-    </Fakediv>
+    <Section
+      id="number2"
+      title1="Notre"
+      title2="Mariage"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
+    >
+      CONTENT
+    </Section>
+    <Fakediv id="number3">HELLOU</Fakediv>
   </Container>
 )
