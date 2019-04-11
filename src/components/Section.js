@@ -52,17 +52,32 @@ const Subtitle = styled.div`
   line-height: 1.625em;
   font-family: ${fonts.raleway};
   font-weight: 300;
-  color: ${colors.notBlack};
+  color: ${colors.text};
   width: 60%;
   text-align: center;
 `
 
-export const Section = ({children, id, title1, title2, subtitle}) => (
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+`
+
+export const Section = ({children, id, title1, title2, subtitle, invert}) => (
   <Container id={id}>
     <Header>
       <Headline />
       <Title>
-        {title1} <span>{title2}</span>
+        {invert ? (
+          <>
+            <span>{title1}</span> {title2}
+          </>
+        ) : (
+          <>
+            {title1}
+            <span> {title2}</span>
+          </>
+        )}
       </Title>
       <div>
         <Underline alt="underline" src={underline} />
@@ -71,6 +86,6 @@ export const Section = ({children, id, title1, title2, subtitle}) => (
         <div>{subtitle}</div>
       </Subtitle>
     </Header>
-    {children}
+    <Content>{children}</Content>
   </Container>
 )

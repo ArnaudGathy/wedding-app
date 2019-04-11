@@ -8,10 +8,12 @@ import {Navbar} from '../components/Navbar'
 import {Section} from '../components/Section'
 import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
+import {Planning} from '../components/Planning'
 
 const Container = styled.div`
   font-size: 1rem;
-  font-family: ${fonts.default};
+  font-family: ${fonts.raleway};
+  color: ${colors.text}
 `
 
 const MainBanner = styled.div`
@@ -101,11 +103,6 @@ const MomentValue = styled.div`
   font-size: 3rem;
 `
 
-const Fakediv = styled.div`
-  height: 400px;
-  background-color: tomato;
-`
-
 const CountDownPart = ({value, title}) => (
   <MomentContainer>
     <MomentValue>{value}</MomentValue>
@@ -145,12 +142,37 @@ export const HomeScreen = () => (
     <Navbar />
     <Section
       id="number2"
-      title1="Notre"
-      title2="Mariage"
+      title1="Les"
+      title2="mariés"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
+      invert
+    >
+      CONTENT
+    </Section>
+    <Section
+      id="number3"
+      title1="La"
+      title2="journée"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
+    >
+      <Planning />
+    </Section>
+    <Section
+      id="number4"
+      title1="Voyage"
+      title2="de noces"
+      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
+      invert
+    >
+      CONTENT
+    </Section>
+    <Section
+      id="number5"
+      title1="Ton"
+      title2="invitation"
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
     >
       CONTENT
     </Section>
-    <Fakediv id="number3">HELLOU</Fakediv>
   </Container>
 )

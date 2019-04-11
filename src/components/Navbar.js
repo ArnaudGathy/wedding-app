@@ -16,7 +16,8 @@ const Container = styled.div`
 
 const MenuItem = styled.a`
   padding: 26px 16px;
-  color: ${({active}) => (active ? colors.pink : colors.notBlack)};
+  color: ${({active}) => (active ? colors.pink : colors.text)};
+  transition: color 0.3s ease;
 
   :hover {
     color: ${colors.pink};
@@ -27,13 +28,11 @@ export const Navbar = () => {
   return (
     <Sticky>
       <Container>
-        <MenuItem href="#home" active={true}>
-          Home
-        </MenuItem>
+        <MenuItem href="#home">Home</MenuItem>
         <MenuItem href="#number2">Nous</MenuItem>
         <MenuItem href="#number3">Planning</MenuItem>
-        <MenuItem href="#number3">Liste</MenuItem>
-        <MenuItem href="#number3">RSVP</MenuItem>
+        <MenuItem href="#number4">Liste</MenuItem>
+        <MenuItem href="#number5">RSVP</MenuItem>
       </Container>
     </Sticky>
   )
