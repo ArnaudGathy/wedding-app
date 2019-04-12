@@ -3,14 +3,17 @@ import styled from 'styled-components'
 import Sticky from 'react-sticky-el'
 import {colors} from '../assets/constants/colors'
 
+const StickyContainer = styled(Sticky)`
+  z-index: 9999;
+`
+
 const Container = styled.div`
+  height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
   background-color: #fff;
-
   box-shadow: 0 10px 14px -10px rgba(0, 0, 0, 0.2);
 `
 
@@ -26,14 +29,13 @@ const MenuItem = styled.a`
 
 export const Navbar = () => {
   return (
-    <Sticky>
+    <StickyContainer>
       <Container>
         <MenuItem href="#home">Home</MenuItem>
-        <MenuItem href="#number2">Nous</MenuItem>
-        <MenuItem href="#number3">Planning</MenuItem>
-        <MenuItem href="#number4">Liste</MenuItem>
-        <MenuItem href="#number5">RSVP</MenuItem>
+        <MenuItem href="#number2">Planning</MenuItem>
+        <MenuItem href="#number3">Liste</MenuItem>
+        <MenuItem href="#number4">Invitation</MenuItem>
       </Container>
-    </Sticky>
+    </StickyContainer>
   )
 }

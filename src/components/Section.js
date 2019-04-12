@@ -6,7 +6,7 @@ import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
 
 const Container = styled.div`
-  height: 100vh;
+  height: ${({autoHeight}) => autoHeight ? 'auto' : '100vh'};
   padding-top: 80px;
   background-color: transparent;
   display: flex;
@@ -16,7 +16,7 @@ const Container = styled.div`
 
 const Header = styled.div`
   width: 60%;
-  margin: 88px 0 80px 0;
+  margin: 2rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,14 +57,8 @@ const Subtitle = styled.div`
   text-align: center;
 `
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-`
-
-export const Section = ({children, id, title1, title2, subtitle, invert}) => (
-  <Container id={id}>
+export const Section = ({children, id, title1, title2, subtitle, invert, autoHeight}) => (
+  <Container id={id} autoHeight={autoHeight}>
     <Header>
       <Headline />
       <Title>
@@ -86,6 +80,6 @@ export const Section = ({children, id, title1, title2, subtitle, invert}) => (
         <div>{subtitle}</div>
       </Subtitle>
     </Header>
-    <Content>{children}</Content>
+    {children}
   </Container>
 )

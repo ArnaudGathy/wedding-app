@@ -9,11 +9,12 @@ import {Section} from '../components/Section'
 import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
 import {Planning} from '../components/Planning'
+import {Map} from '../components/Map'
 
 const Container = styled.div`
   font-size: 1rem;
   font-family: ${fonts.raleway};
-  color: ${colors.text}
+  color: ${colors.text};
 `
 
 const MainBanner = styled.div`
@@ -142,23 +143,15 @@ export const HomeScreen = () => (
     <Navbar />
     <Section
       id="number2"
-      title1="Les"
-      title2="mariés"
-      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
-      invert
-    >
-      CONTENT
-    </Section>
-    <Section
-      id="number3"
       title1="La"
       title2="journée"
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
+      autoHeight
     >
       <Planning />
     </Section>
     <Section
-      id="number4"
+      id="number3"
       title1="Voyage"
       title2="de noces"
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
@@ -167,7 +160,7 @@ export const HomeScreen = () => (
       CONTENT
     </Section>
     <Section
-      id="number5"
+      id="number4"
       title1="Ton"
       title2="invitation"
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."

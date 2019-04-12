@@ -17,7 +17,7 @@ const ChevronPose = posed.div({
     transition: {
       ease: 'easeOut',
       duration: 2000,
-      loop: 99999,
+      loop: Infinity,
     },
   },
 })
