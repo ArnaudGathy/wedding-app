@@ -9,7 +9,6 @@ import {Section} from '../components/Section'
 import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
 import {Planning} from '../components/Planning'
-import {Map} from '../components/Map'
 
 const Container = styled.div`
   font-size: 1rem;
@@ -104,6 +103,20 @@ const MomentValue = styled.div`
   font-size: 3rem;
 `
 
+const MapContainer = styled.div`
+  position: relative;
+  height: 60vh;
+  width: 100%;
+
+  iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+`
+
 const CountDownPart = ({value, title}) => (
   <MomentContainer>
     <MomentValue>{value}</MomentValue>
@@ -145,7 +158,7 @@ export const HomeScreen = () => (
       id="number2"
       title1="La"
       title2="journée"
-      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
+      subtitle="Un mariage à Bruxelles pour des Bruxellois. L’occasion de vous faire découvrir que notre ville aussi peut se faire belle si elle en a envie."
       autoHeight
     >
       <Planning />
@@ -157,7 +170,7 @@ export const HomeScreen = () => (
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
       invert
     >
-      CONTENT
+      test
     </Section>
     <Section
       id="number4"
@@ -167,5 +180,12 @@ export const HomeScreen = () => (
     >
       CONTENT
     </Section>
+    <MapContainer>
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1zoaKtINBgOxWSvjlApdu8bAU2yhcLRqY"
+        zoom="21"
+        center="37.4218,-122.0840"
+      />
+    </MapContainer>
   </Container>
 )

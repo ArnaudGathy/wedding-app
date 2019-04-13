@@ -38,7 +38,7 @@ const Text = styled.div`
   }
 
   div {
-    margin-top: 2rem;
+    margin-top: 1rem;
     color: ${colors.pink};
 
     a {
@@ -122,7 +122,7 @@ const MapPose = posed.div({
   on: {
     y: -5,
     transition: {
-      ease: 'backOut',
+      ease: 'backIn',
       duration: 600,
       yoyo: Infinity,
     },
@@ -130,7 +130,7 @@ const MapPose = posed.div({
 })
 
 const MapMarker = styled(MapPose)`
-    display: inline-block;
+  display: inline-block;
 `
 
 const BlockText = styled(MenuPose)`
@@ -148,59 +148,45 @@ const events = [
   {title: 'Cérémonie laïque', time: '12h15'},
   {title: "Vin d'honneur", time: '13h00'},
   {title: 'Dîner & activités', time: '15h00'},
-  {title: 'Fin', time: '20h00'},
+  {title: 'Fin des évènements', time: '20h00'},
 ]
 
 const content = [
   {
-    title: 'Titre 1',
+    title: 'Mariage civil',
     text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa,\n' +
-      '      scelerisque vel diam non, tristique condimentum dui.\n' +
-      '      venenatis porta mollis. Fusce quis tincidunt orci. Integer\n' +
-      '      fermentum ante augue, sed accumsan purus ornare vitae. Ut accumsan ornare\n' +
-      '      elit at maximus. Aliquam tincidunt ipsum ut nunc sollicitudin dapibus.',
+      'Nous vous retrouverons pour débuter cette magnifique journée au Château Malou.\n' +
+      'En effet, la commune de Woluwe-Saint-Lambert met à disposition ce cadre magique pour le mariage de ses riverains.\n' +
+      'Rendez-vous donc à 11h00 pour nous accompagner lors de la montée de marches !\n',
     location: 'Château Malou',
   },
   {
-    title: 'Titre 2',
+    title: 'Cérémonie Laïque',
     text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa,\n' +
-      '      scelerisque vel diam non, tristique condimentum dui.\n' +
-      '      venenatis porta mollis. Fusce quis tincidunt orci. Integer\n' +
-      '      fermentum ante augue, sed accumsan purus ornare vitae. Ut accumsan ornare\n' +
-      '      elit at maximus. Aliquam tincidunt ipsum ut nunc sollicitudin dapibus.',
-    location: 'Villatitude',
+      'Puisque le mariage n’est pas qu’une question de signature de documents, nous avons décidé d’organiser une petite cérémonie laïque. Notre officiant (pas si officiel) sera en charge de nous unir dans un cadre moins formel et plus décontracté qui nous correspond. Vous aurez également l’occasion de nous faire verser une larme en prononçant quelques mots si vous le souhaitez.',
+    location: 'Jardins @ Villatitude',
   },
   {
-    title: 'Titre 3',
+    title: 'Vin d’honneur',
     text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa,\n' +
-      '      scelerisque vel diam non, tristique condimentum dui.\n' +
-      '      venenatis porta mollis. Fusce quis tincidunt orci. Integer\n' +
-      '      fermentum ante augue, sed accumsan purus ornare vitae. Ut accumsan ornare\n' +
-      '      elit at maximus. Aliquam tincidunt ipsum ut nunc sollicitudin dapibus.',
-    location: 'Villatitude',
+      'Fini les sentiments et place à la fête !\n' +
+      'Zakouski et champagne nous aideront à nous remettre de nos émotions et à honorer les invités qui ne sont pas conviés au dîner.\n' +
+      'Dans le jardin de la Villa, autour de la piscine, seront installés des mange-debout qui permettront de profiter du magnifique cadre.\n',
+    location: 'Poolside @ Villatitude',
   },
   {
-    title: 'Titre 4',
+    title: 'Dîner et activités',
     text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa,\n' +
-      '      scelerisque vel diam non, tristique condimentum dui.\n' +
-      '      venenatis porta mollis. Fusce quis tincidunt orci. Integer\n' +
-      '      fermentum ante augue, sed accumsan purus ornare vitae. Ut accumsan ornare\n' +
-      '      elit at maximus. Aliquam tincidunt ipsum ut nunc sollicitudin dapibus.',
-    location: 'Villatitude',
+      'Un buffet rempli de bonnes choses que l’on s’est fait un plaisir de choisir pour vous nous accueillera dès que les coupes de Champagne seront vides. \n' +
+      'Dès que nos estomacs seront repus, nous pourrons passer aux activités (parfois loufoques mais toujours amusantes !). Nous devrons malheureusement les interrompre pour couper le gâteau, mais est-ce vraiment un désagrément ?\n' +
+      'Après tout ce sucre, on repartira pour la fiesta jusqu’à ce qu’on se fasse jeter en dehors de la salle !\n',
+    location: 'Salon @ Villatitude',
   },
   {
-    title: 'Titre 5',
+    title: 'Fin des évènements',
     text:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa,\n' +
-      '      scelerisque vel diam non, tristique condimentum dui.\n' +
-      '      venenatis porta mollis. Fusce quis tincidunt orci. Integer\n' +
-      '      fermentum ante augue, sed accumsan purus ornare vitae. Ut accumsan ornare\n' +
-      '      elit at maximus. Aliquam tincidunt ipsum ut nunc sollicitudin dapibus.',
-    location: 'Villatitude',
+      'Cette journée est organisée à notre image, nous n’avons pas prévu de soirée dansante. Officiellement la journée s’arrête là, mais nous aurons éventuellement la possibilité de continuer en after party dans notre appartement si la journée ne nous a pas trop éprouvés.',
+    location: "Home",
   },
 ]
 
@@ -210,21 +196,22 @@ const TextBlock = ({title, text, location, toggle}) => {
     setToggle(true)
   }, [])
   return (
-  <Text>
-    <Fade left>
-      <h2>{title}</h2>
-      <p>{text}</p>
-      <div>
-        <MapMarker pose={poseToggle ? 'on' : 'off'}>
-          <FontAwesomeIcon icon="map-marker-alt" />
-        </MapMarker>
-        <a href="#map" onClick={toggle}>
-          {location}
-        </a>
-      </div>
-    </Fade>
-  </Text>
-)}
+    <Text>
+      <Fade left>
+        <h2>{title}</h2>
+        <p>{text}</p>
+        <div>
+          <MapMarker pose={poseToggle ? 'on' : 'off'}>
+            <FontAwesomeIcon icon="map-marker-alt" />
+          </MapMarker>
+          <a href="#map" onClick={toggle}>
+            {location}
+          </a>
+        </div>
+      </Fade>
+    </Text>
+  )
+}
 
 const ButtonBlock = ({title, time, selected, onClick}) => (
   <Block onClick={onClick}>
