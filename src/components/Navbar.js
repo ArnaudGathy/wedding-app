@@ -32,9 +32,9 @@ export const Navbar = () => {
     <StickyContainer>
       <Container>
         <MenuItem href="#home">Home</MenuItem>
-        <MenuItem href="#number2">Planning</MenuItem>
-        <MenuItem href="#number3">Liste de mariage</MenuItem>
-        <MenuItem href="#number4">Invitation</MenuItem>
+        <MenuItem href="#planning">Planning</MenuItem>
+        <MenuItem href="#liste">Liste de mariage</MenuItem>
+        <MenuItem href="#invitation">Invitation</MenuItem>
       </Container>
     </StickyContainer>
   )

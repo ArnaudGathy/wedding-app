@@ -34,11 +34,13 @@ const Popup = styled.div`
 `
 
 export const Map = withScriptjs(
-  withGoogleMap(({isVToggled, vToggle, isCToggled, cToggle}) => {
+  withGoogleMap(({isVToggled, vToggle, isCToggled, cToggle, isHToggled, hToggle}) => {
     const villaLat = 50.800687
     const villaLong = 4.374869
     const communeLat = 50.841389
     const communeLong = 4.439319
+    const homeLat = 50.846278
+    const homeLong = 4.422534
     const centerLat = villaLat + (communeLat - villaLat) / 2 + 0.012
     const centerLong = villaLong + (communeLong - villaLong) / 2
     return (
@@ -50,7 +52,7 @@ export const Map = withScriptjs(
         >
           <Marker
             position={{lat: villaLat, lng: villaLong}}
-            title="VILLATITUDE"
+            title="Villatitude"
             onClick={() => vToggle(true)}
             options={{icon: map_marker}}
           >
@@ -59,7 +61,7 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Villatitude</h1>
                   <p>Chaussée de Waterloo 1020, 1180 Uccle</p>
-                  <p>Parking devant la villa</p>
+                  <p>Parking de la villa</p>
                 </Popup>
               </InfoWindow>
             )}
@@ -67,7 +69,7 @@ export const Map = withScriptjs(
 
           <Marker
             position={{lat: communeLat, lng: communeLong}}
-            title="COMMUNE"
+            title="Château Malou"
             onClick={() => cToggle(true)}
             options={{icon: map_marker}}
           >
@@ -76,7 +78,24 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Château Malou</h1>
                   <p>Allée Pierre Levie 2, 1200 Woluwe-Saint-Lambert</p>
-                  <p>Parking devant le château</p>
+                  <p>Parking du château</p>
+                </Popup>
+              </InfoWindow>
+            )}
+          </Marker>
+
+          <Marker
+            position={{lat: homeLat, lng: homeLong}}
+            title="Home"
+            onClick={() => hToggle(true)}
+            options={{icon: map_marker}}
+          >
+            {isHToggled && (
+              <InfoWindow onCloseClick={() => hToggle(false)}>
+                <Popup>
+                  <h1>Magathy's Home</h1>
+                  <p>Rue Crocq 35, 1200 Woluwe-Saint-Lambert</p>
+                  <p>Parking dans les rues (gratuit)</p>
                 </Popup>
               </InfoWindow>
             )}

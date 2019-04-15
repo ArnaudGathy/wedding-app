@@ -155,7 +155,7 @@ export const HomeScreen = () => (
     </MainBanner>
     <Navbar />
     <Section
-      id="number2"
+      id="planning"
       title1="La"
       title2="journée"
       subtitle="Un mariage à Bruxelles pour des Bruxellois. L’occasion de vous faire découvrir que notre ville aussi peut se faire belle si elle en a envie."
@@ -164,7 +164,7 @@ export const HomeScreen = () => (
       <Planning />
     </Section>
     <Section
-      id="number3"
+      id="liste"
       title1="Voyage"
       title2="de noces"
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
@@ -173,7 +173,7 @@ export const HomeScreen = () => (
       test
     </Section>
     <Section
-      id="number4"
+      id="invitation"
       title1="Ton"
       title2="invitation"
       subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."

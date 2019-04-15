@@ -120,10 +120,10 @@ const MapPose = posed.div({
     y: -2,
   },
   on: {
-    y: -5,
+    y: -7,
     transition: {
       ease: 'backIn',
-      duration: 600,
+      duration: 800,
       yoyo: Infinity,
     },
   },
@@ -170,7 +170,7 @@ const content = [
     title: 'Vin d’honneur',
     text:
       'Fini les sentiments et place à la fête !\n' +
-      'Zakouski et champagne nous aideront à nous remettre de nos émotions et à honorer les invités qui ne sont pas conviés au dîner.\n' +
+      'Zakouskis et Champagne nous aideront à nous remettre de nos émotions et à honorer les invités qui ne sont pas conviés au dîner.\n' +
       'Dans le jardin de la Villa, autour de la piscine, seront installés des mange-debout qui permettront de profiter du magnifique cadre.\n',
     location: 'Poolside @ Villatitude',
   },
@@ -186,7 +186,7 @@ const content = [
     title: 'Fin des évènements',
     text:
       'Cette journée est organisée à notre image, nous n’avons pas prévu de soirée dansante. Officiellement la journée s’arrête là, mais nous aurons éventuellement la possibilité de continuer en after party dans notre appartement si la journée ne nous a pas trop éprouvés.',
-    location: "Home",
+    location: 'Magathy\'s home',
   },
 ]
 
@@ -227,14 +227,23 @@ export const Planning = () => {
 
   const [isVToggled, vToggle] = useState(false)
   const [isCToggled, cToggle] = useState(false)
+  const [isHToggled, hToggle] = useState(false)
   const toggleC = () => {
     cToggle(true)
     vToggle(false)
+    hToggle(false)
   }
   const toggleV = () => {
     cToggle(false)
     vToggle(true)
+    hToggle(false)
   }
+  const toggleH = () => {
+    cToggle(false)
+    vToggle(false)
+    hToggle(true)
+  }
+  const toggles = [toggleC, toggleV, toggleV, toggleV, toggleH]
 
   return (
     <>
@@ -242,7 +251,7 @@ export const Planning = () => {
         <Container>
           <TextBlock
             {...content[selected - 1]}
-            toggle={selected === 1 ? toggleC : toggleV}
+            toggle={toggles[selected-1]}
           />
           <ListContainer>
             <Fade duration={2000}>
@@ -267,6 +276,8 @@ export const Planning = () => {
           vToggle={vToggle}
           isCToggled={isCToggled}
           cToggle={cToggle}
+          isHToggled={isHToggled}
+          hToggle={hToggle}
           googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${
             process.env.REACT_APP_GMAPS_API_KEY
           }&v=3.exp&libraries=geometry,drawing,places`}
