@@ -9,6 +9,7 @@ import {Section} from '../components/Section'
 import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
 import {Planning} from '../components/Planning'
+import {List} from '../components/List'
 
 const Container = styled.div`
   font-size: 1rem;
@@ -167,10 +168,11 @@ export const HomeScreen = () => (
       id="liste"
       title1="Voyage"
       title2="de noces"
-      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
+      subtitle="Vivant ensemble depuis 9 ans, nous n'avons guère besoin d'un service en porcelaine ni d'argenterie. Nous souhaitons plutôt vous proposer de participer à notre voyage de noces."
       invert
+      autoHeight
     >
-      test
+      <List />
     </Section>
     <Section
       id="invitation"

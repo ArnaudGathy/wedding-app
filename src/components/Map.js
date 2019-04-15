@@ -61,7 +61,7 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Villatitude</h1>
                   <p>Chaussée de Waterloo 1020, 1180 Uccle</p>
-                  <p>Parking de la villa</p>
+                  <p>Parking privé devant la villa</p>
                 </Popup>
               </InfoWindow>
             )}
@@ -78,7 +78,7 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Château Malou</h1>
                   <p>Allée Pierre Levie 2, 1200 Woluwe-Saint-Lambert</p>
-                  <p>Parking du château</p>
+                  <p>Parking devant le château</p>
                 </Popup>
               </InfoWindow>
             )}
@@ -95,7 +95,7 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Magathy's Home</h1>
                   <p>Rue Crocq 35, 1200 Woluwe-Saint-Lambert</p>
-                  <p>Parking dans les rues (gratuit)</p>
+                  <p>Parking dans les rues (gratuit samedi soir et dimanche)</p>
                 </Popup>
               </InfoWindow>
             )}
