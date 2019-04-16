@@ -104,20 +104,6 @@ const MomentValue = styled.div`
   font-size: 3rem;
 `
 
-const MapContainer = styled.div`
-  position: relative;
-  height: 60vh;
-  width: 100%;
-
-  iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
-`
-
 const CountDownPart = ({value, title}) => (
   <MomentContainer>
     <MomentValue>{value}</MomentValue>
@@ -168,7 +154,7 @@ export const HomeScreen = () => (
       id="liste"
       title1="Voyage"
       title2="de noces"
-      subtitle="Vivant ensemble depuis 9 ans, nous n'avons guère besoin d'un service en porcelaine ni d'argenterie. Nous souhaitons plutôt vous proposer de participer à notre voyage de noces."
+      subtitle="Vivant ensemble depuis 9 ans, nous n'avons pas l'utilité d'un service en porcelaine ni d'argenterie. Nous souhaitons plutôt vous proposer de participer à notre voyage de noces. Voici à quoi ressemblerait notre voyage de rêve."
       invert
       autoHeight
     >
@@ -182,12 +168,5 @@ export const HomeScreen = () => (
     >
       CONTENT
     </Section>
-    <MapContainer>
-      <iframe
-        src="https://www.google.com/maps/d/embed?mid=1zoaKtINBgOxWSvjlApdu8bAU2yhcLRqY"
-        zoom="21"
-        center="37.4218,-122.0840"
-      />
-    </MapContainer>
   </Container>
 )

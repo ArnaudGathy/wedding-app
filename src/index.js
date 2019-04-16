@@ -4,11 +4,11 @@ import {App} from './App'
 import {firebaseConfig} from './firebaseConfig'
 import firebase from 'firebase/app'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronDown, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faChevronRight, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 import 'bulma/css/bulma.css'
 import './style/index.css';
 require('dotenv').config()
 
-library.add(faChevronDown, faMapMarkerAlt)
+library.add(faChevronDown, faMapMarkerAlt, faChevronRight)
 firebase.initializeApp(firebaseConfig)
 ReactDOM.render(<App />, document.getElementById('root'))
