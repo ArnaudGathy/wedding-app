@@ -17,10 +17,24 @@ export const Button = styled.button`
   text-align: center;
   align-items: center;
   margin-bottom: 1rem;
-  display: block;
+  display: inline-block;
+  ${({small}) => !small && 'width: 100%;'}
 
   :hover {
     background-color: white;
     color: ${colors.pink};
+    cursor: pointer;
+  }
+
+  :focus {
+    outline: 0;
+  }
+  
+  :disabled {
+    background-color: #A00350;
+    cursor: not-allowed;
+    :hover {
+    color: white;
+    }
   }
 `

@@ -8,6 +8,7 @@ import america from '../assets/images/america.jpg'
 import potter from '../assets/images/potter.jpeg'
 import miami from '../assets/images/miami.jpg'
 import mustang from '../assets/images/mustang.jpg'
+import orlando from '../assets/images/orlando.jpg'
 import Fade from 'react-reveal/Fade'
 import {Button} from './Button'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -90,7 +91,6 @@ const TextContainer = styled.div`
   padding: 2rem;
   border: 1px solid ${colors.pink};
   border-radius: 10px;
-  background-color: #fafafa;
 `
 
 const Description = styled.div`
@@ -121,12 +121,12 @@ const MapContainer = styled.div`
 
 const events = [
   {
-    title: 'AMERICA, FUCK YEAH',
+    title: 'AMERICA. FUCK. YEAH.',
     content: (
       <div>
         Pour notre voyage de noces nous allons nous rendre ...{' '}
         <span>AUX ETATS UNIS</span> ! Pays de la liberté, de la démocratie et du
-        divertissement, nous souhaitons nous y rendre principalement pour
+        divertissement, nous voulons nous y rendre principalement pour
         visiter <span>Orlando en Floride</span> afin de visiter ses nombreux
         parcs d'attraction. Tant qu'à faire, on en profitera pour faire un petit
         road trip sur les routes mythiques américaines.
@@ -148,15 +148,15 @@ const events = [
     image: disney,
   },
   {
-    title: 'Road trip dans les Keys',
+    title: 'Road trip au Keys',
     content: (
       <div>
         Nous profiterons de la proximité d'Orlando avec Miami et les Keys pour
         partir en road trip à bord d'une légende américaine : la{' '}
         <span>Ford Mustang cabriolet</span>. Nous rallierons Miami et ensuite
-        les <span>Keys</span>, une série d'île tropicale tout au sud de la
+        les <span>Keys</span>, une série d'îles tropicale tout au sud de la
         Floride. Les îles des keys sont reliées par 42 ponts au dessus de la
-        mer, le plus long faisant 11km de long !
+        mer, le plus long faisant 11km de long ! Une vue à ne pas rater.
       </div>
     ),
     image: mustang,
@@ -166,24 +166,40 @@ const events = [
     content: (
       <div>
         Après les parcs Disney et le road trip nous resterons un peu à{' '}
-        <span>Miami</span>
-        pour visiter la ville mais aussi pour se reposer dans un bel hôtel sur
-        <span>Miami Beach</span>. Nous en profiterons pour faire une visite des
-        Everglades (marécages proche de Miami) de nuit à la recherche
-        d'aligators, le tout à bord d'un aéroglisseur !
+        <span>Miami</span> pour visiter la ville mais on en profitera aussi pour
+        se reposer dans le plus bel hôtel de notre voyage sur{' '}
+        <span>Miami Beach</span> : le Riu Plaza. Nous en profiterons pour faire
+        une visite des Everglades (marécages proche de Miami) de nuit à la
+        recherche d'aligators, le tout à bord d'un aéroglisseur !
       </div>
     ),
     image: miami,
   },
   {
+    title: 'Orlando',
+    content: (
+      <div>
+        Même si nous atterissons dans la ville, on aura pour la 1ere fois
+        vraiment le temps de visiter <span>Orlando</span> plus en profondeur au
+        retour du roadtrip. Une bonne occasion de découvrir une ville
+        "ordinaire" américaine et de passer voir les légendaires{' '}
+        <a href="http://www.peopleofwalmart.com/" rel="noreferrer noopener">
+          "Walmart people"
+        </a>{' '}
+        ou de tester un Baconator au <span>Wendy's</span>.
+      </div>
+    ),
+    image: orlando,
+  },
+  {
     title: 'Universal Studio',
     content: (
       <div>
-        Retour à Orlando, direction <span>Universal Studio</span>, deux parcs à
-        thème sur les univers cinématographiques de ... Universal. Le clou du
-        spectacle : le village <span>Harry Potter</span> reprenant une réplique
-        de Poudlard, ainsi que le chemin de traverse et pré-au-lard le tout
-        accessible à bord du Poudlard Express !
+        Après le retour à Orlando, direction <span>Universal Studio</span>, deux
+        parcs à thème sur les univers cinématographiques de ... Universal. Le
+        clou du spectacle : le village <span>Harry Potter</span> reprenant une
+        réplique de Poudlard, ainsi que le chemin de traverse et pré-au-lard le
+        tout accessible à bord du Poudlard Express lui-même !
       </div>
     ),
     image: potter,
@@ -193,14 +209,6 @@ const events = [
 const MapEventLine = () => (
   <Event>
     <Box left>
-      <LeftArrow />
-      <h1>Carte du voyage</h1>
-      <p>
-        Pour mieux visualiser le voyage, vous pouvez utiliser cette carte
-        interactive qui reprend toutes les étapes de notre trip.
-      </p>
-    </Box>
-    <Box>
       <Fade right>
         <MapContainer>
           <iframe
@@ -210,6 +218,15 @@ const MapEventLine = () => (
           />
         </MapContainer>
       </Fade>
+    </Box>
+    <Box>
+      <RightArrow />
+      <h1>Carte du voyage</h1>
+      <p>
+        Pour mieux visualiser le voyage, tu peux utiliser cette carte
+        interactive qui reprend toutes les étapes de notre trip. Elle indique
+        tous nos trajets ainsi que les lieux que nous allons visiter.
+      </p>
     </Box>
   </Event>
 )
@@ -259,11 +276,14 @@ export const List = () => (
     </Content>
     <TextContainer>
       <Description left>
-        Si vous souhaitez participer au voyage de noces, nous mettons à votre
-        disposition la liste de mariage sur le site Kadolog. Le site vous permet
+        Si tu souhaites participer au voyage de noces, nous mettons à ta
+        disposition la liste de mariage sur le site Kadolog. Le site te permet
         de participer financièrement à notre voyage de noces en "achetant" des
         activités et parties du voyage. C'est une manière ludique et pratique
-        qui vous permet de savoir à quoi serviront les dons !
+        qui te permet de savoir à quoi serviront les dons !<br />
+        <br />
+        Tu peux soit offrir un cadeau entièrement, soit participer pour une
+        partie au montant fixe soit participer pour une partie au montant libre.
       </Description>
       <Description>
         <Button
@@ -275,10 +295,10 @@ export const List = () => (
           Liste de mariage <FontAwesomeIcon icon="chevron-right" />
         </Button>
         <p>
-          Nous vous encourageons à payer par virement bancaire, les autres modes
-          de paiement sont soumis à un prélèvement de 2,4% du site. Si vous
-          souhaitez participer d'une autre manière, nous vous invitons à nous
-          contacter directement.
+          Nous t'encourageons à payer par virement bancaire, les autres modes
+          de paiement sont soumis à un prélèvement de 2,4% de la part site. Si
+          te souhaites participer d'une autre manière, nous t'invitons à
+          nous contacter directement.
         </p>
       </Description>
     </TextContainer>

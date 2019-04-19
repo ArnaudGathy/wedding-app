@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import am from '../assets/images/am.jpg'
 import heart from '../assets/images/heart.svg'
@@ -10,6 +10,9 @@ import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
 import {Planning} from '../components/Planning'
 import {List} from '../components/List'
+import {RSVPScreen} from './RSVPScreen'
+import {Field, Form} from 'react-final-form'
+import {Button} from '../components/Button'
 
 const Container = styled.div`
   font-size: 1rem;
@@ -104,6 +107,57 @@ const MomentValue = styled.div`
   font-size: 3rem;
 `
 
+const RSVPContainer = styled.div`
+  display: flex;
+  width: 60%;
+  margin-bottom: 4rem;
+  position: relative;
+  justify-content: center;
+  text-align: center;
+`
+
+export const NoCode = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid ${colors.pink};
+  border-radius: 10px;
+  padding: 2rem;
+  font-family: ${fonts.raleway};
+  font-size: 1rem;
+  font-weight: 300;
+
+  span {
+    color: ${colors.pink};
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  input {
+    width: 100%;
+    background-color: white;
+    border: 1px solid ${colors.text};
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    font-size: 1rem;
+
+    :focus {
+      outline-width: 0;
+    }
+  }
+`
+
 const CountDownPart = ({value, title}) => (
   <MomentContainer>
     <MomentValue>{value}</MomentValue>
@@ -111,62 +165,94 @@ const CountDownPart = ({value, title}) => (
   </MomentContainer>
 )
 
-export const HomeScreen = () => (
-  <Container>
-    <MainBanner id="home">
-      <MainBannerStripes>
-        <MainBlock>
-          <MainHeartBlock />
-          <MainInfoBlock>
-            <WeddingBlock>Mariage</WeddingBlock>
-            <NameBlock>
-              <div>Magaly & Arnaud</div>
-            </NameBlock>
-            <DateBlock>5 Octobre 2019</DateBlock>
+export const HomeScreen = ({
+  match: {
+    params: {code},
+  },
+}) => {
+  const [codeName, setCode] = useState(null)
+  return (
+    <Container>
+      <MainBanner id="home">
+        <MainBannerStripes>
+          <MainBlock>
+            <MainHeartBlock />
+            <MainInfoBlock>
+              <WeddingBlock>Mariage</WeddingBlock>
+              <NameBlock>
+                <div>Magaly & Arnaud</div>
+              </NameBlock>
+              <DateBlock>5 Octobre 2019</DateBlock>
 
-            <Countdown
-              date={new Date('2019-10-05T11:00:00')}
-              renderer={({days, hours, minutes, seconds}) => (
-                <CountDownBlock>
-                  <CountDownPart value={days} title="jours" />
-                  <CountDownPart value={hours} title="heures" />
-                  <CountDownPart value={minutes} title="minutes" />
-                  <CountDownPart value={seconds} title="secondes" />
-                </CountDownBlock>
-              )}
-            />
-            <Chevron />
-          </MainInfoBlock>
-        </MainBlock>
-      </MainBannerStripes>
-    </MainBanner>
-    <Navbar />
-    <Section
-      id="planning"
-      title1="La"
-      title2="journée"
-      subtitle="Un mariage à Bruxelles pour des Bruxellois. L’occasion de vous faire découvrir que notre ville aussi peut se faire belle si elle en a envie."
-      autoHeight
-    >
-      <Planning />
-    </Section>
-    <Section
-      id="liste"
-      title1="Voyage"
-      title2="de noces"
-      subtitle="Vivant ensemble depuis 9 ans, nous n'avons pas l'utilité d'un service en porcelaine ni d'argenterie. Nous souhaitons plutôt vous proposer de participer à notre voyage de noces. Voici à quoi ressemblerait notre voyage de rêve."
-      invert
-      autoHeight
-    >
-      <List />
-    </Section>
-    <Section
-      id="invitation"
-      title1="Ton"
-      title2="invitation"
-      subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed turpis massa, scelerisque vel diam non."
-    >
-      CONTENT
-    </Section>
-  </Container>
-)
+              <Countdown
+                date={new Date('2019-10-05T11:00:00')}
+                renderer={({days, hours, minutes, seconds}) => (
+                  <CountDownBlock>
+                    <CountDownPart value={days} title="jours" />
+                    <CountDownPart value={hours} title="heures" />
+                    <CountDownPart value={minutes} title="minutes" />
+                    <CountDownPart value={seconds} title="secondes" />
+                  </CountDownBlock>
+                )}
+              />
+              <Chevron />
+            </MainInfoBlock>
+          </MainBlock>
+        </MainBannerStripes>
+      </MainBanner>
+      <Navbar />
+      <Section
+        id="planning"
+        title1="La"
+        title2="journée"
+        subtitle="Un mariage à Bruxelles pour des Bruxellois. L’occasion de te faire découvrir qu'on peut se marrier en dehors d'un château ou d'une ferme."
+        autoHeight
+      >
+        <Planning />
+      </Section>
+      <Section
+        id="liste"
+        title1="Voyage"
+        title2="de noces"
+        subtitle="Vivant ensemble depuis 9 ans, nous n'avons pas l'utilité d'un service en porcelaine ni d'argenterie. Nous souhaitons plutôt te proposer de participer à notre voyage de noces. Voici à quoi ressemblerait notre voyage de rêve."
+        invert
+        autoHeight
+      >
+        <List />
+      </Section>
+      <Section
+        id="invitation"
+        title1="Ton"
+        title2="invitation"
+        subtitle="Pour faciliter notre organisation, veux-tu bien répondre à notre invitation via l'outil ci-dessous ?"
+      >
+        <RSVPContainer>
+          {code ? (
+            <RSVPScreen codeName={code} />
+          ) : codeName ? (
+            <RSVPScreen codeName={codeName} reset={() => setCode(null)} />
+          ) : (
+            <NoCode>
+              <h2>Indique ton code unique :</h2>
+              <Form
+                onSubmit={data => setCode(data.codeName)}
+                render={({handleSubmit}) => (
+                  <form onSubmit={handleSubmit}>
+                    <Field
+                      name="codeName"
+                      component="input"
+                      type="text"
+                      placeholder="Code ultra secret de la mort"
+                    />
+                    <br />
+                    <Button type="submit">Valider</Button>
+                  </form>
+                )}
+              />
+            </NoCode>
+          )}
+        </RSVPContainer>
+      </Section>
+    </Container>
+  )
+}

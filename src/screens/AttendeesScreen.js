@@ -140,6 +140,7 @@ export const AttendeesScreen = () => {
       <table className="table">
         <thead>
           <tr>
+            <th>S.</th>
             <th>Name</th>
             <th>Code name</th>
             <th>Guest</th>
@@ -159,17 +160,18 @@ export const AttendeesScreen = () => {
               attending,
               guest,
               code,
-              invitation: {ahouse, bceremony, cwine, dinner, eactivities},
+              invitation: {ahouse, bceremony, cwine, dinner},
+              woman
             }) => (
               <Row key={uid} status={attending}>
+                <td>{woman === false ? '👩️' : '👨️'}</td>
                 <td>{name}</td>
                 <td>{code}</td>
                 <td>{guest}</td>
-                <td>{ahouse ? 'X' : '-'}</td>
-                <td>{bceremony ? 'X' : '-'}</td>
-                <td>{cwine ? 'X' : '-'}</td>
-                <td>{dinner ? 'X' : '-'}</td>
-                <td>{eactivities ? 'X' : '-'}</td>
+                <td>{ahouse ? '🙋‍♀️' : '🙅‍♀️'}</td>
+                <td>{bceremony ? '🙋‍♀️' : '🙅‍♀️'}</td>
+                <td>{cwine ? '🙋‍♀️' : '🙅‍♀️'}</td>
+                <td>{dinner ? '🙋‍♀️' : '🙅‍♀️'}</td>
                 <td>
                   <button
                     className="button is-danger is-small"
@@ -203,6 +205,14 @@ export const AttendeesScreen = () => {
               />
               <br />
               <Field
+                name="woman"
+                component={checkBox}
+                type="checkbox"
+                title="Femme ?"
+              />
+              <br />
+              <br />
+              <Field
                 name="invitation.ahouse"
                 component={checkBox}
                 type="checkbox"
@@ -225,12 +235,6 @@ export const AttendeesScreen = () => {
                 component={checkBox}
                 type="checkbox"
                 title="Dîner"
-              />
-              <Field
-                name="invitation.eactivities"
-                component={checkBox}
-                type="checkbox"
-                title="Activités"
               />
 
               <button className="button is-warning is-small" type="submit">

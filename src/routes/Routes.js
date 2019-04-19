@@ -7,7 +7,7 @@ import {RSVPScreen} from '../screens/RSVPScreen'
 export const Routes = () => (
   <Switch>
     <Route path="/admin" component={AdminScreen} />
-    <Route path='/:code' component={RSVPScreen} />
+    <Route path='/:code' component={HomeScreen} />
     <Route path="/" component={HomeScreen} />
   </Switch>
 )

@@ -155,7 +155,7 @@ const content = [
   {
     title: 'Mariage civil',
     text:
-      'Nous vous retrouverons pour débuter cette magnifique journée au Château Malou.\n' +
+      'Nous te retrouverons pour débuter cette magnifique journée au Château Malou.\n' +
       'En effet, la commune de Woluwe-Saint-Lambert met à disposition ce cadre magique pour le mariage de ses riverains.\n' +
       'Rendez-vous donc à 11h00 pour nous accompagner lors de la montée de marches !\n',
     location: 'Château Malou',

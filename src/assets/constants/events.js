@@ -1,7 +1,6 @@
 export const events = {
-    eactivities: "Activités de fin d'après midi",
     bceremony: 'Cérémonie laïque',
-    dinner: 'Dîner',
-    ahouse: 'Mariage civil (à la commune)',
+    dinner: 'Dîner & Activités',
+    ahouse: 'Mariage civil',
     cwine: "Vin d'honneur",
   }
