@@ -26,6 +26,7 @@ const Content = styled.div`
   ${media.tablet`
       width: 100%;
       padding: 0 1.5rem;
+      margin-bottom: 2rem;
   `}
 `
 
@@ -50,6 +51,9 @@ const EventContainer = styled.div`
 const Event = styled.div`
   display: flex;
   margin-bottom: 3rem;
+  ${media.tablet`
+      margin-bottom: 2rem;
+  `}
 `
 
 const Box = styled.div`
@@ -124,7 +128,7 @@ const TextContainer = styled.div`
   ${media.tablet`
     flex-direction: column;
     width: 100%;
-    padding: 4rem 1.5rem;
+    padding: 1.5rem;
   `}
 `
 

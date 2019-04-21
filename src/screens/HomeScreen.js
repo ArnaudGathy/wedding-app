@@ -26,6 +26,11 @@ const MainBanner = styled.div`
   width: 100vw;
   background-image: url(${am});
   background-position: 0px 60%;
+  
+  ${media.tablet`
+    background-size: auto 100%;
+    background-position: 43% 0;
+  `}
 `
 
 const MainBannerStripes = styled.div`
@@ -87,6 +92,10 @@ const WeddingBlock = styled.div`
 const NameBlock = styled.div`
   font-size: 3rem;
   font-weight: 500;
+  
+  ${media.tablet`
+      font-size: 2rem;
+  `}
 `
 
 const DateBlock = styled.div`
@@ -114,11 +123,17 @@ const MomentContainer = styled.div`
 const MomentTitle = styled.div`
   font-family: ${fonts.dancing};
   font-size: 2rem;
+  ${media.tablet`
+     font-size: 1rem;
+  `}
 `
 const MomentValue = styled.div`
   font-family: ${fonts.raleway};
   font-weight: 500;
   font-size: 3rem;
+  ${media.tablet`
+      font-size: 2rem;
+  `}
 `
 
 const RSVPContainer = styled.div`
@@ -225,7 +240,6 @@ export const HomeScreen = ({
         title1="La"
         title2="journée"
         subtitle="Nous avons choisi d'organiser le mariage à notre image et de se détacher un peu des conventions habituelles. Le thème sera centré sur la culture pop !"
-        autoHeight
       >
         <Planning />
       </Section>
@@ -235,7 +249,6 @@ export const HomeScreen = ({
         title2="de noces"
         subtitle="Vivant ensemble depuis 9 ans, nous n'avons pas l'utilité d'un service en porcelaine ni d'argenterie. Nous souhaitons plutôt te proposer de participer à notre voyage de noces. Voici à quoi ressemblerait notre voyage de rêve."
         invert
-        autoHeight
       >
         <List />
       </Section>

@@ -7,12 +7,15 @@ import {colors} from '../assets/constants/colors'
 import {media} from '../style/queries'
 
 const Container = styled.div`
-  height: ${({autoHeight}) => autoHeight ? 'auto' : '100vh'};
   padding-top: 80px;
   background-color: transparent;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  ${media.tablet`
+      padding-top: 40px;
+  `}
 `
 
 const Header = styled.div`

@@ -64,6 +64,7 @@ const Text = styled.div`
   ${media.tablet`
     text-align: center;
     margin: 0;
+    padding: 1.5rem; 
   `}
 `
 
@@ -91,6 +92,7 @@ const List = styled.div`
   ${media.tablet`
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin: 0 1.5rem;
       
     :before {
@@ -125,6 +127,13 @@ const BlockNumber = styled.div`
   margin-right: 1rem;
   padding-top: 14px;
   z-index: 1;
+  
+  ${media.tablet`
+    height: 45px;
+    width: 45px;
+    font-size: 0.8rem;
+    padding-top: 10px;
+  `}
 `
 
 const MenuPose = posed.div({
@@ -195,6 +204,11 @@ const DressText = styled.div`
     font-weight: 300;
     text-decoration: underline;
   }
+  
+  ${media.tablet`
+     margin-left: 0;
+     text-align: center;
+  `}
 `
 
 const DressImg = styled.div`
@@ -311,7 +325,7 @@ export const Planning = () => {
     <>
       <Content>
         <DressCode>
-          <DressImg>
+          <DressImg className="is-hidden-touch">
             <FontAwesomeIcon icon="user-tie" size="3x" />
           </DressImg>
           <DressText>

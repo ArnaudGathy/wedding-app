@@ -34,7 +34,7 @@ const MenuItem = styled.a`
 
 export const Navbar = () => {
   return (
-    <StickyContainer>
+    <StickyContainer className="is-hidden-touch">
       <Container>
         <MenuItem href="#home">Home</MenuItem>
         <MenuItem href="#planning">Planning</MenuItem>
