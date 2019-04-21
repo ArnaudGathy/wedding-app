@@ -167,10 +167,10 @@ export const AttendeesScreen = () => {
                 <td>{name}</td>
                 <td>{code}</td>
                 <td>{guest}</td>
-                <td>{ahouse ? '🙋‍♀️' : '🙅‍♀️'}</td>
-                <td>{bceremony ? '🙋‍♀️' : '🙅‍♀️'}</td>
-                <td>{cwine ? '🙋‍♀️' : '🙅‍♀️'}</td>
-                <td>{dinner ? '🙋‍♀️' : '🙅‍♀️'}</td>
+                <td>{ahouse === undefined ? '-' : ahouse ?  '✔️️' : '❌️'}</td>
+                <td>{bceremony === undefined ? '-' : bceremony ?  '✔️' : '❌️'}</td>
+                <td>{cwine === undefined ? '-' : cwine ?  '✔️️' : '❌️'}</td>
+                <td>{dinner === undefined ? '-' : dinner ?  '✔️️' : '❌️'}</td>
                 <td>
                   <button
                     className="button is-danger is-small"
