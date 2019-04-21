@@ -42,7 +42,7 @@ const Bounce2 = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: #333;
+  background-color: rgb(222, 3, 127);
   opacity: 0.6;
   position: absolute;
   top: 0;

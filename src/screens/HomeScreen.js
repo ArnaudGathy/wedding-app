@@ -13,6 +13,7 @@ import {List} from '../components/List'
 import {RSVPScreen} from './RSVPScreen'
 import {Field, Form} from 'react-final-form'
 import {Button} from '../components/Button'
+import {Footer} from '../components/Footer'
 
 const Container = styled.div`
   font-size: 1rem;
@@ -205,7 +206,7 @@ export const HomeScreen = ({
         id="planning"
         title1="La"
         title2="journée"
-        subtitle="Un mariage à Bruxelles pour des Bruxellois. L’occasion de te faire découvrir qu'on peut se marrier en dehors d'un château ou d'une ferme."
+        subtitle="Nous avons choisi d'organiser le mariage à notre image et de se détacher un peu des conventions habituelles. Le thème sera centré sur la culture pop !"
         autoHeight
       >
         <Planning />
@@ -224,7 +225,7 @@ export const HomeScreen = ({
         id="invitation"
         title1="Ton"
         title2="invitation"
-        subtitle="Pour faciliter notre organisation, veux-tu bien répondre à notre invitation via l'outil ci-dessous ?"
+        subtitle="Pour faciliter notre organisation, peux-tu répondre à notre invitation via l'outil ci-dessous avant le 1er juin 2019 ?"
       >
         <RSVPContainer>
           {code ? (
@@ -242,7 +243,7 @@ export const HomeScreen = ({
                       name="codeName"
                       component="input"
                       type="text"
-                      placeholder="Code ultra secret de la mort"
+                      placeholder="Code ultra secret"
                     />
                     <br />
                     <Button type="submit">Valider</Button>
@@ -253,6 +254,7 @@ export const HomeScreen = ({
           )}
         </RSVPContainer>
       </Section>
+      <Footer />
     </Container>
   )
 }

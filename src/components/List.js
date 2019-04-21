@@ -9,6 +9,7 @@ import potter from '../assets/images/potter.jpeg'
 import miami from '../assets/images/miami.jpg'
 import mustang from '../assets/images/mustang.jpg'
 import orlando from '../assets/images/orlando.jpg'
+import bg from '../assets/images/bg.png'
 import Fade from 'react-reveal/Fade'
 import {Button} from './Button'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -81,6 +82,13 @@ const Box = styled.div`
   }
 `
 
+const FullWidthContainer = styled.div`
+    width: 100%;
+    background-image: url(${bg});
+    display: flex;
+    justify-content: center;
+`
+
 const TextContainer = styled.div`
   width: 60%;
   display: flex;
@@ -89,7 +97,7 @@ const TextContainer = styled.div`
   font-family: ${fonts.raleway};
   font-weight: 300;
   padding: 2rem;
-  border: 1px solid ${colors.pink};
+  margin: 2rem;
   border-radius: 10px;
 `
 
@@ -274,6 +282,7 @@ export const List = () => (
         <MapEventLine />
       </EventContainer>
     </Content>
+    <FullWidthContainer>
     <TextContainer>
       <Description left>
         Si tu souhaites participer au voyage de noces, nous mettons à ta
@@ -302,5 +311,6 @@ export const List = () => (
         </p>
       </Description>
     </TextContainer>
+    </FullWidthContainer>
   </>
 )

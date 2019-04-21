@@ -6,12 +6,17 @@ import Fade from 'react-reveal/Fade'
 import withReveal from 'react-reveal/withReveal'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {Map} from './Map'
+import bg from '../assets/images/bg.png'
+import 'rc-tooltip/assets/bootstrap_white.css'
+import Tooltip from 'rc-tooltip'
+import {media} from '../style/queries'
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   width: 60%;
   margin-bottom: 4rem;
+  align-items: center;
 `
 
 const MapContent = styled.div`
@@ -143,11 +148,44 @@ const BlockText = styled(MenuPose)`
   }
 `
 
+const DressCode = styled.div`
+  width: 80%;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  display: flex;
+  background-image: url(${bg});
+  ${media.tablet`
+    width: 100%;
+  `}
+`
+
+const DressText = styled.div`
+  flex: 9;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  font-weight: 300;
+
+  span {
+    color: ${colors.pink};
+    font-weight: 300;
+    text-decoration: underline;
+  }
+`
+
+const DressImg = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: ${colors.pink}
+`
+
 const events = [
   {title: 'Mariage civil', time: '11h00'},
   {title: 'Cérémonie laïque', time: '12h15'},
   {title: "Vin d'honneur", time: '13h00'},
-  {title: 'Dîner & activités', time: '15h00'},
+  {title: 'Dîner & activités', time: '14h30'},
   {title: 'Fin des évènements', time: '20h00'},
 ]
 
@@ -186,7 +224,7 @@ const content = [
     title: 'Fin des évènements',
     text:
       'Cette journée est organisée à notre image, nous n’avons pas prévu de soirée dansante. Officiellement la journée s’arrête là, mais nous aurons éventuellement la possibilité de continuer en after party dans notre appartement si la journée ne nous a pas trop éprouvés.',
-    location: 'Magathy\'s home',
+    location: "Magathy's home",
   },
 ]
 
@@ -248,10 +286,46 @@ export const Planning = () => {
   return (
     <>
       <Content>
+        <DressCode>
+          <DressImg>
+            <FontAwesomeIcon icon="user-tie" size="3x" />
+          </DressImg>
+          <DressText>
+            Il n'y a pas de dresscode strict, cependant n'oublie pas ta plus
+            belle robe ou ton beau costume du
+            dimanche. De plus, nous te demandons d'arborer un{' '}
+            <Tooltip
+              placement="top"
+              trigger={['hover']}
+              overlay={
+                <span>
+                  Boucles d'oreilles, broche, cravatte, collier, chausettes,
+                  boutons de manchettes, pin's, ...
+                </span>
+              }
+            >
+              <span>accessoire vestimentaire</span>
+            </Tooltip>{' '}
+            issu de ton univers de{' '}
+            <Tooltip
+              placement="top"
+              trigger={['hover']}
+              overlay={
+                <span>
+                  Jeux vidéo, film, livre, manga, dessin animé, série, bande
+                  dessinée, comics, ...
+                </span>
+              }
+            >
+              <span>culture populaire</span>
+            </Tooltip>{' '}
+            favori.
+          </DressText>
+        </DressCode>
         <Container>
           <TextBlock
             {...content[selected - 1]}
-            toggle={toggles[selected-1]}
+            toggle={toggles[selected - 1]}
           />
           <ListContainer>
             <Fade duration={2000}>

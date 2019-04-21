@@ -22,7 +22,8 @@
     "react-scripts": "2.1.8",
     "react-sticky-el": "^1.0.20",
     "styled-components": "4.2.0",
-    "react-google-maps": "^9.4.5"
+    "react-google-maps": "^9.4.5",
+    "rc-tooltip": "^3.7.3"
   },
   "devDependencies": {
     "firebase-bolt": "0.8.4",

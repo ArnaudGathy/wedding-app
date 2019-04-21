@@ -4,6 +4,7 @@ import headline from '../assets/images/headline.svg'
 import underline from '../assets/images/underline.svg'
 import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
+import {media} from '../style/queries'
 
 const Container = styled.div`
   height: ${({autoHeight}) => autoHeight ? 'auto' : '100vh'};
@@ -20,6 +21,10 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  ${media.tablet`
+    width: 100%;
+  `}
 `
 
 const Headline = styled.div`

@@ -78,7 +78,7 @@ export const RSVPScreen = ({codeName, reset}) => {
 
   return (
     <NoCode className="container">
-      <h1>Hello {attendee.name.split(' ')[0]}</h1>
+      <h1>Coucou {attendee.name.split(' ')[0]} !</h1>
       <Form
         onSubmit={data => {
           if (!data.attending || step === 3) {
@@ -167,7 +167,7 @@ export const RSVPScreen = ({codeName, reset}) => {
             >
               {step === 2 && values.hasGuest && (
                 <>
-                  <h2>Nom de l'invité(e)</h2>
+                  <h2>Nom de l'invité(e) (requis)</h2>
                   <Field name="guest" component="input" type="input" />
                 </>
               )}
