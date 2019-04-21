@@ -90,6 +90,7 @@ export const RSVPScreen = ({codeName, reset}) => {
                     code: attendee.code,
                     attending: false,
                     invitation: data.invitation,
+                    woman: attendee.woman
                   }
                 : data.hasGuest
                 ? {name: attendee.name, code: attendee.code, ...data}
@@ -98,6 +99,7 @@ export const RSVPScreen = ({codeName, reset}) => {
                     code: attendee.code,
                     attending: true,
                     invitation: data.invitation,
+                    woman: attendee.woman
                   }
             return updateEntity({
               uid: attendee.uid,

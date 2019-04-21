@@ -148,7 +148,6 @@ export const AttendeesScreen = () => {
             <th>Céré.</th>
             <th>Vin</th>
             <th>Dîn.</th>
-            <th>Act.</th>
             <th />
           </tr>
         </thead>
