@@ -17,6 +17,11 @@ const Content = styled.div`
   width: 60%;
   margin-bottom: 4rem;
   align-items: center;
+
+  ${media.tablet`
+      width: 100%;
+      padding: 0 1.5rem;
+  `}
 `
 
 const MapContent = styled.div`
@@ -27,6 +32,10 @@ const MapContent = styled.div`
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
+
+  ${media.tablet`
+      flex-direction: column-reverse;
+  `}
 `
 
 const Text = styled.div`
@@ -51,6 +60,11 @@ const Text = styled.div`
       margin-left: 0.5rem;
     }
   }
+  
+  ${media.tablet`
+    text-align: center;
+    margin: 0;
+  `}
 `
 
 const ListContainer = styled.div`
@@ -73,6 +87,16 @@ const List = styled.div`
     width: 1px;
     z-index: 0;
   }
+
+  ${media.tablet`
+    display: flex;
+    flex-direction: row;
+    margin: 0 1.5rem;
+      
+    :before {
+      content: none;
+    }
+  `}
 `
 
 const Block = withReveal(
@@ -178,7 +202,7 @@ const DressImg = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${colors.pink}
+  color: ${colors.pink};
 `
 
 const events = [
@@ -254,7 +278,7 @@ const TextBlock = ({title, text, location, toggle}) => {
 const ButtonBlock = ({title, time, selected, onClick}) => (
   <Block onClick={onClick}>
     <BlockNumber selected={selected}>{time}</BlockNumber>
-    <BlockText pose={selected ? 'on' : 'off'} selected={selected}>
+    <BlockText pose={selected ? 'on' : 'off'} selected={selected} className="is-hidden-touch">
       {title}
     </BlockText>
   </Block>
@@ -292,8 +316,8 @@ export const Planning = () => {
           </DressImg>
           <DressText>
             Il n'y a pas de dresscode strict, cependant n'oublie pas ta plus
-            belle robe ou ton beau costume du
-            dimanche. De plus, nous te demandons d'arborer un{' '}
+            belle robe ou ton beau costume du dimanche. De plus, nous te
+            demandons d'arborer un{' '}
             <Tooltip
               placement="top"
               trigger={['hover']}

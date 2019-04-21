@@ -60,6 +60,11 @@ const Subtitle = styled.div`
   color: ${colors.text};
   width: 60%;
   text-align: center;
+  
+  ${media.tablet`
+      width: 100%;
+      padding: 0 1.5rem;
+  `}
 `
 
 export const Section = ({children, id, title1, title2, subtitle, invert, autoHeight}) => (

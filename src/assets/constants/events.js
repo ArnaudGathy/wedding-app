@@ -1,6 +1,6 @@
 export const events = {
-    bceremony: 'Cérémonie laïque',
-    dinner: 'Dîner & Activités',
-    ahouse: 'Mariage civil',
-    cwine: "Vin d'honneur",
+    bceremony: '12h15 - Cérémonie laïque',
+    dinner: '14h30 - Dîner & Activités',
+    ahouse: '11h00 - Mariage civil',
+    cwine: "13h00 - Vin d'honneur",
   }

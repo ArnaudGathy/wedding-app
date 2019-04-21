@@ -13,7 +13,7 @@ import {List} from '../components/List'
 import {RSVPScreen} from './RSVPScreen'
 import {Field, Form} from 'react-final-form'
 import {Button} from '../components/Button'
-import {Footer} from '../components/Footer'
+import {media} from '../style/queries'
 
 const Container = styled.div`
   font-size: 1rem;
@@ -49,6 +49,10 @@ const MainBlock = styled.div`
   width: 60%;
   font-family: ${fonts.raleway};
   color: white;
+  
+  ${media.tablet`
+      width: 100%;
+  `}
 `
 
 const MainHeartBlock = styled.div`
@@ -58,6 +62,10 @@ const MainHeartBlock = styled.div`
   width: 60%;
   height: 380px;
   position: absolute;
+  ${media.tablet`
+    width: 100%;
+    height: 150px;
+  `}
 `
 
 const MainInfoBlock = styled.div`
@@ -90,12 +98,17 @@ const DateBlock = styled.div`
 const CountDownBlock = styled.div`
   margin-top: 8rem;
   display: flex;
+  justify-content: space-around;
+  width: 60%;
+  ${media.tablet`
+      width: 100%;
+      padding: 0 1.5rem;
+  `}
 `
 
 const MomentContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 2rem;
   align-items: center;
 `
 const MomentTitle = styled.div`
@@ -115,6 +128,11 @@ const RSVPContainer = styled.div`
   position: relative;
   justify-content: center;
   text-align: center;
+  
+  ${media.tablet`
+      width: 100%;
+      padding: 0 1.5rem;
+  `}
 `
 
 export const NoCode = styled.div`
@@ -254,7 +272,6 @@ export const HomeScreen = ({
           )}
         </RSVPContainer>
       </Section>
-      <Footer />
     </Container>
   )
 }

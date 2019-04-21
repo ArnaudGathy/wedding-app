@@ -14,6 +14,7 @@ import Fade from 'react-reveal/Fade'
 import {Button} from './Button'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {colors} from '../assets/constants/colors'
+import {media} from '../style/queries'
 
 const Content = styled.div`
   display: flex;
@@ -21,6 +22,11 @@ const Content = styled.div`
   width: 60%;
   margin-bottom: 4rem;
   position: relative;
+  
+  ${media.tablet`
+      width: 100%;
+      padding: 0 1.5rem;
+  `}
 `
 
 const EventContainer = styled.div`
@@ -33,6 +39,12 @@ const EventContainer = styled.div`
     top: 15px;
     width: 1px;
   }
+  
+  ${media.tablet`
+    :before {
+      content: none;
+    }
+  `}
 `
 
 const Event = styled.div`
@@ -50,6 +62,16 @@ const Box = styled.div`
   font-family: ${fonts.raleway};
   font-size: 1rem;
   font-weight: 300;
+  
+  ${media.tablet`
+      text-align: center;
+      margin: 0;
+      height: auto;
+      
+      :after {
+        content: none;
+      }
+  `}
   
   h1 {
     font-size: 1.5rem;
@@ -83,10 +105,10 @@ const Box = styled.div`
 `
 
 const FullWidthContainer = styled.div`
-    width: 100%;
-    background-image: url(${bg});
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  background-image: url(${bg});
+  display: flex;
+  justify-content: center;
 `
 
 const TextContainer = styled.div`
@@ -96,21 +118,49 @@ const TextContainer = styled.div`
   font-size: 1em;
   font-family: ${fonts.raleway};
   font-weight: 300;
-  padding: 2rem;
-  margin: 2rem;
+  padding: 4rem 0;
   border-radius: 10px;
+
+  ${media.tablet`
+    flex-direction: column;
+    width: 100%;
+    padding: 4rem 1.5rem;
+  `}
 `
 
-const Description = styled.div`
+const ListText = styled.div`
   flex: 1;
-  ${({left}) => left && 'text-align: right;'}
-  margin-${({left}) => (left ? 'right' : 'left')}: 4rem;
-  
+  text-align: right;
+  margin-right: 4rem;
+
   p {
     font-size: 0.8rem;
     font-weight: 300;
     text-align: center;
   }
+
+  ${media.tablet`
+      margin-bottom: 2rem;
+      text-align: center;
+      margin-right: 0;
+  `}
+`
+
+const ListButton = styled.div`
+  flex: 1;
+  text-align: left;
+  margin-left: 4rem;
+
+  p {
+    font-size: 0.8rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  ${media.tablet`
+      text-align: center;
+      margin-left: 0;
+  `}
 `
 
 const MapContainer = styled.div`
@@ -134,10 +184,10 @@ const events = [
       <div>
         Pour notre voyage de noces nous allons nous rendre ...{' '}
         <span>AUX ETATS UNIS</span> ! Pays de la liberté, de la démocratie et du
-        divertissement, nous voulons nous y rendre principalement pour
-        visiter <span>Orlando en Floride</span> afin de visiter ses nombreux
-        parcs d'attraction. Tant qu'à faire, on en profitera pour faire un petit
-        road trip sur les routes mythiques américaines.
+        divertissement, nous voulons nous y rendre principalement pour visiter{' '}
+        <span>Orlando en Floride</span> afin de visiter ses nombreux parcs
+        d'attraction. Tant qu'à faire, on en profitera pour faire un petit road
+        trip sur les routes mythiques américaines.
       </div>
     ),
     image: america,
@@ -191,7 +241,7 @@ const events = [
         vraiment le temps de visiter <span>Orlando</span> plus en profondeur au
         retour du roadtrip. Une bonne occasion de découvrir une ville
         "ordinaire" américaine et de passer voir les légendaires{' '}
-        <a href="http://www.peopleofwalmart.com/" rel="noreferrer noopener">
+        <a href="http://www.peopleofwalmart.com/" target="_blank" rel="noreferrer noopener">
           "Walmart people"
         </a>{' '}
         ou de tester un Baconator au <span>Wendy's</span>.
@@ -227,7 +277,7 @@ const MapEventLine = () => (
         </MapContainer>
       </Fade>
     </Box>
-    <Box>
+    <Box className="is-hidden-touch">
       <RightArrow />
       <h1>Carte du voyage</h1>
       <p>
@@ -244,11 +294,11 @@ const EventLine = ({invert, image, title, content}) => {
     return (
       <Event>
         <Box left>
-          <LeftArrow />
+          <LeftArrow className="is-hidden-touch" />
           <h1>{title}</h1>
           <p>{content}</p>
         </Box>
-        <Box>
+        <Box className="is-hidden-touch">
           <Fade right>
             <img src={image} alt="am" />
           </Fade>
@@ -258,13 +308,13 @@ const EventLine = ({invert, image, title, content}) => {
   }
   return (
     <Event>
-      <Box left>
+      <Box left className="is-hidden-touch">
         <Fade left>
           <img src={image} alt="am" />
         </Fade>
       </Box>
       <Box>
-        <RightArrow />
+        <RightArrow className="is-hidden-touch" />
         <h1>{title}</h1>
         <p>{content}</p>
       </Box>
@@ -283,34 +333,35 @@ export const List = () => (
       </EventContainer>
     </Content>
     <FullWidthContainer>
-    <TextContainer>
-      <Description left>
-        Si tu souhaites participer au voyage de noces, nous mettons à ta
-        disposition la liste de mariage sur le site Kadolog. Le site te permet
-        de participer financièrement à notre voyage de noces en "achetant" des
-        activités et parties du voyage. C'est une manière ludique et pratique
-        qui te permet de savoir à quoi serviront les dons !<br />
-        <br />
-        Tu peux soit offrir un cadeau entièrement, soit participer pour une
-        partie au montant fixe soit participer pour une partie au montant libre.
-      </Description>
-      <Description>
-        <Button
-          as="a"
-          href="https://www.kadolog.com/fr/list/voyage-de-noces-disney-world-universal-studio-road-trip-miami-keys"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Liste de mariage <FontAwesomeIcon icon="chevron-right" />
-        </Button>
-        <p>
-          Nous t'encourageons à payer par virement bancaire, les autres modes
-          de paiement sont soumis à un prélèvement de 2,4% de la part site. Si
-          te souhaites participer d'une autre manière, nous t'invitons à
-          nous contacter directement.
-        </p>
-      </Description>
-    </TextContainer>
+      <TextContainer>
+        <ListText>
+          Si tu souhaites participer au voyage de noces, nous mettons à ta
+          disposition la liste de mariage sur le site Kadolog. Le site te permet
+          de participer financièrement à notre voyage de noces en "achetant" des
+          activités et parties du voyage. C'est une manière ludique et pratique
+          qui te permet de savoir à quoi serviront les dons !<br />
+          <br />
+          Tu peux soit offrir un cadeau entièrement, soit participer pour une
+          partie au montant fixe soit participer pour une partie au montant
+          libre.
+        </ListText>
+        <ListButton>
+          <Button
+            as="a"
+            href="https://www.kadolog.com/fr/list/voyage-de-noces-disney-world-universal-studio-road-trip-miami-keys"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Liste de mariage <FontAwesomeIcon icon="chevron-right" />
+          </Button>
+          <p>
+            Nous t'encourageons à payer par virement bancaire, les autres modes
+            de paiement sont soumis à un prélèvement de 2,4% de la part site. Si
+            te souhaites participer d'une autre manière, nous t'invitons à nous
+            contacter directement.
+          </p>
+        </ListButton>
+      </TextContainer>
     </FullWidthContainer>
   </>
 )
