@@ -237,7 +237,7 @@ const events = [
     title: 'Orlando',
     content: (
       <div>
-        Même si nous atterissons dans la ville, on aura pour la 1ere fois
+        Même si nous atterrissons dans la ville, on aura pour la 1re fois
         vraiment le temps de visiter <span>Orlando</span> plus en profondeur au
         retour du roadtrip. Une bonne occasion de découvrir une ville
         "ordinaire" américaine et de passer voir les légendaires{' '}
@@ -257,7 +257,7 @@ const events = [
         parcs à thème sur les univers cinématographiques de ... Universal. Le
         clou du spectacle : le village <span>Harry Potter</span> reprenant une
         réplique de Poudlard, ainsi que le chemin de traverse et pré-au-lard le
-        tout accessible à bord du Poudlard Express lui-même !
+        tout directement accessible à bord du Poudlard Express lui-même !
       </div>
     ),
     image: potter,
