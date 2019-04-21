@@ -273,6 +273,7 @@ const MapEventLine = () => (
             src="https://www.google.com/maps/d/embed?mid=1zoaKtINBgOxWSvjlApdu8bAU2yhcLRqY"
             zoom="21"
             center="37.4218,-122.0840"
+            title="Map"
           />
         </MapContainer>
       </Fade>
@@ -296,7 +297,7 @@ const EventLine = ({invert, image, title, content}) => {
         <Box left>
           <LeftArrow className="is-hidden-touch" />
           <h1>{title}</h1>
-          <p>{content}</p>
+          {content}
         </Box>
         <Box className="is-hidden-touch">
           <Fade right>
@@ -316,7 +317,7 @@ const EventLine = ({invert, image, title, content}) => {
       <Box>
         <RightArrow className="is-hidden-touch" />
         <h1>{title}</h1>
-        <p>{content}</p>
+        {content}
       </Box>
     </Event>
   )
@@ -327,7 +328,7 @@ export const List = () => (
     <Content>
       <EventContainer>
         {events.map((event, index) => (
-          <EventLine invert={index % 2 === 1} {...event} />
+          <EventLine key={event.title} invert={index % 2 === 1} {...event} />
         ))}
         <MapEventLine />
       </EventContainer>

@@ -90,7 +90,6 @@ export const RSVPScreen = ({codeName, reset}) => {
                     code: attendee.code,
                     attending: false,
                     invitation: data.invitation,
-                    woman: attendee.woman
                   }
                 : data.hasGuest
                 ? {name: attendee.name, code: attendee.code, ...data}
@@ -99,8 +98,11 @@ export const RSVPScreen = ({codeName, reset}) => {
                     code: attendee.code,
                     attending: true,
                     invitation: data.invitation,
-                    woman: attendee.woman
                   }
+
+            if (attendee.woman === false) {
+              value.woman = false
+            }
             return updateEntity({
               uid: attendee.uid,
               value,
@@ -116,8 +118,8 @@ export const RSVPScreen = ({codeName, reset}) => {
                 {attendee.attending === undefined ? (
                   <>
                     <p>
-                      Tu es invité{attendee.woman === false && 'e'} à notre mariage ce{' '}
-                      <span>samedi 5 octobre 2019</span>
+                      Tu es invité{attendee.woman === false && 'e'} à notre
+                      mariage ce <span>samedi 5 octobre 2019</span>
                     </p>
                     <p>
                       Peux tu nous donner une réponse{' '}
@@ -158,7 +160,9 @@ export const RSVPScreen = ({codeName, reset}) => {
             <FieldContainer pose={step === 2 ? 'visible' : 'hidden'}>
               {step === 2 && (
                 <>
-                  <h2>Viens-tu accompagné{attendee.woman === false && 'e'} ?</h2>
+                  <h2>
+                    Viens-tu accompagné{attendee.woman === false && 'e'} ?
+                  </h2>
                   <p>(Par quelqu'un qui n'a pas reçu d'invitation.)</p>
                   <Field name="hasGuest" component={CheckBox} type="checkbox" />
                 </>
@@ -178,8 +182,13 @@ export const RSVPScreen = ({codeName, reset}) => {
             <FieldContainer pose={step === 3 ? 'visible' : 'hidden'}>
               {step === 3 && (
                 <>
-                  <h2>Tu es invité{attendee.woman === false && 'e'} aux évènements suivants</h2>
-                  <p>Aux quels sera tu présent{attendee.woman === false && 'e'} ?</p>
+                  <h2>
+                    Tu es invité{attendee.woman === false && 'e'} aux évènements
+                    suivants
+                  </h2>
+                  <p>
+                    Aux quels sera tu présent{attendee.woman === false && 'e'} ?
+                  </p>
                   {Object.keys(attendee.invitation).map(name => (
                     <Field
                       key={name}
