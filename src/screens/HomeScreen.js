@@ -14,6 +14,7 @@ import {RSVPScreen} from './RSVPScreen'
 import {Field, Form} from 'react-final-form'
 import {Button} from '../components/Button'
 import {media} from '../style/queries'
+import Fade from 'react-reveal/Fade';
 
 const Container = styled.div`
   font-size: 1rem;
@@ -26,8 +27,10 @@ const MainBanner = styled.div`
   width: 100vw;
   background-image: url(${am});
   background-position: 0px 60%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
   
-  ${media.tablet`
+  ${media.desktop`
     background-size: auto 100%;
     background-position: 43% 0;
   `}
@@ -55,7 +58,7 @@ const MainBlock = styled.div`
   font-family: ${fonts.raleway};
   color: white;
   
-  ${media.tablet`
+  ${media.desktop`
       width: 100%;
   `}
 `
@@ -67,7 +70,7 @@ const MainHeartBlock = styled.div`
   width: 60%;
   height: 380px;
   position: absolute;
-  ${media.tablet`
+  ${media.desktop`
     width: 100%;
     height: 150px;
   `}
@@ -93,7 +96,7 @@ const NameBlock = styled.div`
   font-size: 3rem;
   font-weight: 500;
   
-  ${media.tablet`
+  ${media.desktop`
       font-size: 2rem;
   `}
 `
@@ -108,8 +111,8 @@ const CountDownBlock = styled.div`
   margin-top: 8rem;
   display: flex;
   justify-content: space-around;
-  width: 60%;
-  ${media.tablet`
+  width: 80%;
+  ${media.desktop`
       width: 100%;
       padding: 0 1.5rem;
   `}
@@ -123,7 +126,7 @@ const MomentContainer = styled.div`
 const MomentTitle = styled.div`
   font-family: ${fonts.dancing};
   font-size: 2rem;
-  ${media.tablet`
+  ${media.desktop`
      font-size: 1rem;
   `}
 `
@@ -131,7 +134,7 @@ const MomentValue = styled.div`
   font-family: ${fonts.raleway};
   font-weight: 500;
   font-size: 3rem;
-  ${media.tablet`
+  ${media.desktop`
       font-size: 2rem;
   `}
 `
@@ -144,7 +147,7 @@ const RSVPContainer = styled.div`
   justify-content: center;
   text-align: center;
   
-  ${media.tablet`
+  ${media.desktop`
       width: 100%;
       padding: 0 1.5rem;
   `}
@@ -161,6 +164,7 @@ export const NoCode = styled.div`
   font-family: ${fonts.raleway};
   font-size: 1rem;
   font-weight: 300;
+  width: 100%
 
   span {
     color: ${colors.pink};
@@ -211,6 +215,7 @@ export const HomeScreen = ({
         <MainBannerStripes>
           <MainBlock>
             <MainHeartBlock />
+            <Fade duration="4000">
             <MainInfoBlock>
               <WeddingBlock>Mariage</WeddingBlock>
               <NameBlock>
@@ -231,6 +236,7 @@ export const HomeScreen = ({
               />
               <Chevron />
             </MainInfoBlock>
+            </Fade>
           </MainBlock>
         </MainBannerStripes>
       </MainBanner>

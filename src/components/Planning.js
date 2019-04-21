@@ -18,7 +18,7 @@ const Content = styled.div`
   margin-bottom: 4rem;
   align-items: center;
 
-  ${media.tablet`
+  ${media.desktop`
       width: 100%;
       padding: 0 1.5rem;
   `}
@@ -31,9 +31,8 @@ const MapContent = styled.div`
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-around;
 
-  ${media.tablet`
+  ${media.desktop`
       flex-direction: column-reverse;
   `}
 `
@@ -60,8 +59,8 @@ const Text = styled.div`
       margin-left: 0.5rem;
     }
   }
-  
-  ${media.tablet`
+
+  ${media.desktop`
     text-align: center;
     margin: 0;
     padding: 1.5rem; 
@@ -71,29 +70,32 @@ const Text = styled.div`
 const ListContainer = styled.div`
   position: relative;
   flex: 1;
+  margin-left: 4rem;
+  
+  ${media.desktop`
+      margin: 0;
+  `}
 `
 
 const List = styled.div`
   flex: 1;
-  margin-left: 4rem;
   color: ${colors.title};
 
   :before {
     background: none repeat scroll 0 0 #d2d2d2;
     bottom: 40px;
     content: '';
-    left: 91px;
+    left: 27px;
     position: absolute;
     top: 30px;
     width: 1px;
     z-index: 0;
   }
 
-  ${media.tablet`
+  ${media.desktop`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 0 1.5rem;
       
     :before {
       content: none;
@@ -127,12 +129,13 @@ const BlockNumber = styled.div`
   margin-right: 1rem;
   padding-top: 14px;
   z-index: 1;
-  
-  ${media.tablet`
+
+  ${media.desktop`
     height: 45px;
     width: 45px;
     font-size: 0.8rem;
-    padding-top: 10px;
+    padding-top: 12px;
+    margin: 0 0.5rem;
   `}
 `
 
@@ -188,7 +191,7 @@ const DressCode = styled.div`
   margin-bottom: 3rem;
   display: flex;
   background-image: url(${bg});
-  ${media.tablet`
+  ${media.desktop`
     width: 100%;
   `}
 `
@@ -204,8 +207,8 @@ const DressText = styled.div`
     font-weight: 300;
     text-decoration: underline;
   }
-  
-  ${media.tablet`
+
+  ${media.desktop`
      margin-left: 0;
      text-align: center;
   `}
@@ -292,7 +295,11 @@ const TextBlock = ({title, text, location, toggle}) => {
 const ButtonBlock = ({title, time, selected, onClick}) => (
   <Block onClick={onClick}>
     <BlockNumber selected={selected}>{time}</BlockNumber>
-    <BlockText pose={selected ? 'on' : 'off'} selected={selected} className="is-hidden-touch">
+    <BlockText
+      pose={selected ? 'on' : 'off'}
+      selected={selected}
+      className="is-hidden-touch"
+    >
       {title}
     </BlockText>
   </Block>
@@ -366,19 +373,17 @@ export const Planning = () => {
             toggle={toggles[selected - 1]}
           />
           <ListContainer>
-            <Fade duration={2000}>
-              <List>
-                {events.map(({title, time}, index) => (
-                  <ButtonBlock
-                    key={time}
-                    selected={selected === index + 1}
-                    time={time}
-                    title={title}
-                    onClick={() => setSelected(index + 1)}
-                  />
-                ))}
-              </List>
-            </Fade>
+            <List>
+              {events.map(({title, time}, index) => (
+                <ButtonBlock
+                  key={time}
+                  selected={selected === index + 1}
+                  time={time}
+                  title={title}
+                  onClick={() => setSelected(index + 1)}
+                />
+              ))}
+            </List>
           </ListContainer>
         </Container>
       </Content>

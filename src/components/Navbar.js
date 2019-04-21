@@ -23,7 +23,7 @@ const MenuItem = styled.a`
   color: ${({active}) => (active ? colors.pink : colors.text)};
   transition: color 0.3s ease;
   
-  ${media.tablet`
+  ${media.desktop`
       padding: 0 1rem;
   `}
 

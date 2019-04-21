@@ -13,7 +13,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   
-  ${media.tablet`
+  ${media.desktop`
       padding-top: 40px;
   `}
 `
@@ -25,7 +25,7 @@ const Header = styled.div`
   flex-direction: column;
   align-items: center;
   
-  ${media.tablet`
+  ${media.desktop`
     width: 100%;
   `}
 `
@@ -64,7 +64,7 @@ const Subtitle = styled.div`
   width: 60%;
   text-align: center;
   
-  ${media.tablet`
+  ${media.desktop`
       width: 100%;
       padding: 0 1.5rem;
   `}

@@ -15,6 +15,7 @@ import {Button} from './Button'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {colors} from '../assets/constants/colors'
 import {media} from '../style/queries'
+import Zoom from 'react-reveal'
 
 const Content = styled.div`
   display: flex;
@@ -22,8 +23,8 @@ const Content = styled.div`
   width: 60%;
   margin-bottom: 4rem;
   position: relative;
-  
-  ${media.tablet`
+
+  ${media.desktop`
       width: 100%;
       padding: 0 1.5rem;
       margin-bottom: 2rem;
@@ -40,8 +41,8 @@ const EventContainer = styled.div`
     top: 15px;
     width: 1px;
   }
-  
-  ${media.tablet`
+
+  ${media.desktop`
     :before {
       content: none;
     }
@@ -51,7 +52,7 @@ const EventContainer = styled.div`
 const Event = styled.div`
   display: flex;
   margin-bottom: 3rem;
-  ${media.tablet`
+  ${media.desktop`
       margin-bottom: 2rem;
   `}
 `
@@ -66,16 +67,6 @@ const Box = styled.div`
   font-family: ${fonts.raleway};
   font-size: 1rem;
   font-weight: 300;
-  
-  ${media.tablet`
-      text-align: center;
-      margin: 0;
-      height: auto;
-      
-      :after {
-        content: none;
-      }
-  `}
   
   h1 {
     font-size: 1.5rem;
@@ -106,6 +97,19 @@ const Box = styled.div`
       right: -73px;
     `}
   }
+  
+    ${media.desktop`
+
+      text-align: center;
+      margin: 0;
+      height: auto;
+      
+      :after {
+        content: none;
+        position: static;
+        border: none;
+      }
+  `}
 `
 
 const FullWidthContainer = styled.div`
@@ -125,7 +129,7 @@ const TextContainer = styled.div`
   padding: 4rem 0;
   border-radius: 10px;
 
-  ${media.tablet`
+  ${media.desktop`
     flex-direction: column;
     width: 100%;
     padding: 1.5rem;
@@ -143,7 +147,7 @@ const ListText = styled.div`
     text-align: center;
   }
 
-  ${media.tablet`
+  ${media.desktop`
       margin-bottom: 2rem;
       text-align: center;
       margin-right: 0;
@@ -161,7 +165,7 @@ const ListButton = styled.div`
     text-align: center;
   }
 
-  ${media.tablet`
+  ${media.desktop`
       text-align: center;
       margin-left: 0;
   `}
@@ -245,7 +249,11 @@ const events = [
         vraiment le temps de visiter <span>Orlando</span> plus en profondeur au
         retour du roadtrip. Une bonne occasion de découvrir une ville
         "ordinaire" américaine et de passer voir les légendaires{' '}
-        <a href="http://www.peopleofwalmart.com/" target="_blank" rel="noreferrer noopener">
+        <a
+          href="http://www.peopleofwalmart.com/"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           "Walmart people"
         </a>{' '}
         ou de tester un Baconator au <span>Wendy's</span>.
@@ -271,7 +279,7 @@ const events = [
 const MapEventLine = () => (
   <Event>
     <Box left>
-      <Fade right>
+      <Fade left>
         <MapContainer>
           <iframe
             src="https://www.google.com/maps/d/embed?mid=1zoaKtINBgOxWSvjlApdu8bAU2yhcLRqY"
@@ -283,13 +291,15 @@ const MapEventLine = () => (
       </Fade>
     </Box>
     <Box className="is-hidden-touch">
-      <RightArrow />
-      <h1>Carte du voyage</h1>
-      <p>
-        Pour mieux visualiser le voyage, tu peux utiliser cette carte
-        interactive qui reprend toutes les étapes de notre trip. Elle indique
-        tous nos trajets ainsi que les lieux que nous allons visiter.
-      </p>
+      <Fade right>
+        <RightArrow />
+        <h1>Carte du voyage</h1>
+        <p>
+          Pour mieux visualiser le voyage, tu peux utiliser cette carte
+          interactive qui reprend toutes les étapes de notre trip. Elle indique
+          tous nos trajets ainsi que les lieux que nous allons visiter.
+        </p>
+      </Fade>
     </Box>
   </Event>
 )
@@ -299,9 +309,11 @@ const EventLine = ({invert, image, title, content}) => {
     return (
       <Event>
         <Box left>
-          <LeftArrow className="is-hidden-touch" />
-          <h1>{title}</h1>
-          {content}
+          <Fade left>
+            <LeftArrow className="is-hidden-touch" />
+            <h1>{title}</h1>
+            {content}
+          </Fade>
         </Box>
         <Box className="is-hidden-touch">
           <Fade right>
@@ -319,9 +331,11 @@ const EventLine = ({invert, image, title, content}) => {
         </Fade>
       </Box>
       <Box>
-        <RightArrow className="is-hidden-touch" />
-        <h1>{title}</h1>
-        {content}
+        <Fade right>
+          <RightArrow className="is-hidden-touch" />
+          <h1>{title}</h1>
+          {content}
+        </Fade>
       </Box>
     </Event>
   )
@@ -351,6 +365,7 @@ export const List = () => (
           libre.
         </ListText>
         <ListButton>
+          <Zoom>
           <Button
             as="a"
             href="https://www.kadolog.com/fr/list/voyage-de-noces-disney-world-universal-studio-road-trip-miami-keys"
@@ -365,6 +380,7 @@ export const List = () => (
             te souhaites participer d'une autre manière, nous t'invitons à nous
             contacter directement.
           </p>
+          </Zoom>
         </ListButton>
       </TextContainer>
     </FullWidthContainer>

@@ -10,6 +10,7 @@ import {
 import map_marker from '../assets/images/map_marker.png'
 import {fonts} from '../assets/constants/fonts'
 import {colors} from '../assets/constants/colors'
+import {media} from '../style/queries'
 
 const Anchor = styled.div`
   display: block;
@@ -20,7 +21,7 @@ const Anchor = styled.div`
 
 const Popup = styled.div`
   width: 400px;
-  height: 100px;
+  height: auto;
   font-family: ${fonts.raleway};
   font-size: 1rem;
   font-weight: 300;
@@ -31,6 +32,15 @@ const Popup = styled.div`
     color: ${colors.pink};
     margin-bottom: 1rem;
   }
+  
+  .parking {
+    margin-top: 1rem;
+  }
+  
+  ${media.desktop`
+      width: 250px;
+      height: auto;
+  `}
 `
 
 export const Map = withScriptjs(
@@ -61,7 +71,7 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Villatitude</h1>
                   <p>Chaussée de Waterloo 1020, 1180 Uccle</p>
-                  <p>Parking privé devant la villa</p>
+                  <p className="parking">Parking privé devant la villa</p>
                 </Popup>
               </InfoWindow>
             )}
@@ -78,7 +88,7 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Château Malou</h1>
                   <p>Allée Pierre Levie 2, 1200 Woluwe-Saint-Lambert</p>
-                  <p>Parking devant le château</p>
+                  <p className="parking">Parking devant le château</p>
                 </Popup>
               </InfoWindow>
             )}
@@ -95,7 +105,7 @@ export const Map = withScriptjs(
                 <Popup>
                   <h1>Magathy's Home</h1>
                   <p>Rue Crocq 35, 1200 Woluwe-Saint-Lambert</p>
-                  <p>Parking dans les rues (gratuit samedi soir et dimanche)</p>
+                  <p className="parking">Parking dans les rues (gratuit samedi soir et dimanche)</p>
                 </Popup>
               </InfoWindow>
             )}
