@@ -23,7 +23,8 @@
     "react-sticky-el": "^1.0.20",
     "styled-components": "4.2.0",
     "react-google-maps": "^9.4.5",
-    "rc-tooltip": "^3.7.3"
+    "rc-tooltip": "^3.7.3",
+    "react-copy-to-clipboard": "^5.0.1"
   },
   "devDependencies": {
     "firebase-bolt": "0.8.4",

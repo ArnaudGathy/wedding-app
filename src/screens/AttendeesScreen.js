@@ -4,6 +4,7 @@ import {useFirebase} from '../hooks/useFirebase'
 import {Spinner} from '../style/spinner'
 import styled from 'styled-components'
 import {events} from '../assets/constants/events'
+import {CopyToClipboard} from 'react-copy-to-clipboard'
 
 const Row = styled.tr`
   background-color: ${({status}) =>
@@ -149,6 +150,7 @@ export const AttendeesScreen = () => {
             <th>Vin</th>
             <th>Dîn.</th>
             <th />
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -160,17 +162,19 @@ export const AttendeesScreen = () => {
               guest,
               code,
               invitation: {ahouse, bceremony, cwine, dinner},
-              woman
+              woman,
             }) => (
               <Row key={uid} status={attending}>
                 <td>{woman === false ? '👩️' : '👨️'}</td>
                 <td>{name}</td>
                 <td>{code}</td>
                 <td>{guest}</td>
-                <td>{ahouse === undefined ? '-' : ahouse ?  '✔️️' : '❌️'}</td>
-                <td>{bceremony === undefined ? '-' : bceremony ?  '✔️' : '❌️'}</td>
-                <td>{cwine === undefined ? '-' : cwine ?  '✔️️' : '❌️'}</td>
-                <td>{dinner === undefined ? '-' : dinner ?  '✔️️' : '❌️'}</td>
+                <td>{ahouse === undefined ? '-' : ahouse ? '✔️️' : '❌️'}</td>
+                <td>
+                  {bceremony === undefined ? '-' : bceremony ? '✔️' : '❌️'}
+                </td>
+                <td>{cwine === undefined ? '-' : cwine ? '✔️️' : '❌️'}</td>
+                <td>{dinner === undefined ? '-' : dinner ? '✔️️' : '❌️'}</td>
                 <td>
                   <button
                     className="button is-danger is-small"
@@ -178,6 +182,11 @@ export const AttendeesScreen = () => {
                   >
                     Remove
                   </button>
+                </td>
+                <td>
+                  <CopyToClipboard text={`https://magathy.party/${code}`}>
+                    <button className="button is-primary is-small">Copy URL</button>
+                  </CopyToClipboard>
                 </td>
               </Row>
             )
