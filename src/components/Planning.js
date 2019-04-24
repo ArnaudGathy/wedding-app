@@ -57,6 +57,7 @@ const Text = styled.div`
     a {
       color: ${colors.pink};
       margin-left: 0.5rem;
+      text-decoration: underline;
     }
   }
 

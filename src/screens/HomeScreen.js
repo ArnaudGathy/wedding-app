@@ -90,6 +90,10 @@ const WeddingBlock = styled.div`
   ::first-letter {
     color: ${colors.pink};
   }
+  
+  ${media.desktop`
+      font-size: 3rem;
+  `}
 `
 
 const NameBlock = styled.div`

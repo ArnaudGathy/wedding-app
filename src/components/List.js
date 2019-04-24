@@ -74,8 +74,13 @@ const Box = styled.div`
     font-weight: 300;
   }
   
+  a {
+    color: ${colors.pink};
+    text-decoration: underline;
+  }
+  
   span {
-    color: ${colors.pink}
+    font-weight: 500;
   }
   
   img {

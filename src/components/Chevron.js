@@ -34,7 +34,7 @@ export const Chevron = () => {
 
   return (
     <ChevronContainer pose={toggle ? 'on' : 'off'}>
-      <FontAwesomeIcon icon="chevron-down" size="2x" />
+      <a href="#planning"><FontAwesomeIcon icon="chevron-down" size="2x" /></a>
     </ChevronContainer>
   )
 }
