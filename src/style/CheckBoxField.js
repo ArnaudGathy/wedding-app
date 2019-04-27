@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import '../style/minicheckbox.css'
 import {fonts} from '../assets/constants/fonts'
+import 'bulma-extensions/bulma-checkradio/dist/css/bulma-checkradio.min.css'
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  font: 24px/1.4 ${fonts.raleway}, sans-serif;
+  justify-content: flex-start;
+  font: 1rem ${fonts.raleway};
+  margin: 1rem 0;
 `
 
 export const CheckBoxField = ({
@@ -16,17 +17,17 @@ export const CheckBoxField = ({
   ...rest
 }) => (
   <Container>
-    <input
-      id={title}
-      type="checkbox"
-      className="minicheck"
-      checked={value}
-      onChange={() => onChange(!value)}
-      {...rest}
-    />
-    <label className="minicheck-label" htmlFor={title}>
-      <span className="minicheck-span" />
-      {title}
-    </label>
+    <div className="field">
+      <input
+        className="is-checkradio is-danger is-large"
+        id={title}
+        type="checkbox"
+        name="check"
+        checked={value}
+        onChange={() => onChange(!value)}
+        {...rest}
+      />
+      <label htmlFor={title}>{title}</label>
+    </div>
   </Container>
 )

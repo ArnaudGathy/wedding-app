@@ -48,6 +48,13 @@ const ButtonContainer = styled.div`
   justify-content: center;
 `
 
+const FieldsBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    margin: 2rem 0;
+`
+
 export const RSVPScreen = ({codeName, reset}) => {
   const {entities, updateEntity} = useFirebase({
     ref: '/attendees',
@@ -189,6 +196,7 @@ export const RSVPScreen = ({codeName, reset}) => {
                   <p>
                     Aux quels sera tu présent{attendee.woman === false && 'e'} ?
                   </p>
+                  <FieldsBox>
                   {Object.keys(attendee.invitation).map(name => (
                     <Field
                       key={name}
@@ -198,6 +206,7 @@ export const RSVPScreen = ({codeName, reset}) => {
                       title={events[name]}
                     />
                   ))}
+                  </FieldsBox>
                 </>
               )}
             </FieldContainer>
