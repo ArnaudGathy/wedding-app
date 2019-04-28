@@ -195,11 +195,11 @@ const events = [
     title: 'AMERICA. FUCK. YEAH.',
     content: (
       <div>
-        Pour notre voyage de noces nous allons nous rendre ...{' '}
-        <span>AUX ETATS UNIS</span> ! Pays de la liberté, de la démocratie et du
+        Pour notre voyage de noces, nous allons nous rendre ...{' '}
+        <span>AUX ETATS-UNIS</span> ! Pays de la liberté, de la démocratie et du
         divertissement, nous voulons nous y rendre principalement pour visiter{' '}
         <span>Orlando en Floride</span> afin de visiter ses nombreux parcs
-        d'attraction. Tant qu'à faire, on en profitera pour faire un petit road
+        d'attractions. Tant qu'à faire, on en profitera pour faire un petit road
         trip sur les routes mythiques américaines.
       </div>
     ),
@@ -209,24 +209,24 @@ const events = [
     title: 'Disney World',
     content: (
       <div>
-        En Floride se trouve un des plus grand parc du monde :{' '}
-        <span>Disney World</span>. Il est composé de 4 à thème principaux, dont
-        deux sont unique en Floride (les 2 autres sont semblables à ceux de
-        Paris). Nous visiterons les parcs <span>Animal Kingdom</span> et{' '}
+        En Floride se trouve un des plus grands parcs du monde :{' '}
+        <span>Disney World</span>. Il est composé de 4 parcs à thème, dont deux
+        sont uniques en Floride (les 2 autres sont semblables à ceux de Disney
+        Land Paris). Nous visiterons les parcs <span>Animal Kingdom</span> et{' '}
         <span>Epcot</span> tout en logeant dans un magnifique hôtel Disney.
       </div>
     ),
     image: disney,
   },
   {
-    title: 'Road trip au Keys',
+    title: 'Road trip aux Keys',
     content: (
       <div>
         Nous profiterons de la proximité d'Orlando avec Miami et les Keys pour
         partir en road trip à bord d'une légende américaine : la{' '}
         <span>Ford Mustang cabriolet</span>. Nous rallierons Miami et ensuite
-        les <span>Keys</span>, une série d'îles tropicale tout au sud de la
-        Floride. Les îles des keys sont reliées par 42 ponts au dessus de la
+        les <span>Keys</span>, une série d'iles tropicales tout au sud de la
+        Floride. Les iles des keys sont reliées par 42 ponts au-dessus de la
         mer, le plus long faisant 11km de long ! Une vue à ne pas rater.
       </div>
     ),
@@ -236,12 +236,12 @@ const events = [
     title: 'Miami',
     content: (
       <div>
-        Après les parcs Disney et le road trip nous resterons un peu à{' '}
-        <span>Miami</span> pour visiter la ville mais on en profitera aussi pour
-        se reposer dans le plus bel hôtel de notre voyage sur{' '}
+        Après les parcs Disney et le road trip, nous resterons un peu à{' '}
+        <span>Miami</span> pour visiter la ville, mais on en profitera aussi
+        pour se reposer dans le plus bel hôtel de notre voyage sur{' '}
         <span>Miami Beach</span> : le Riu Plaza. Nous en profiterons pour faire
-        une visite des Everglades (marécages proche de Miami) de nuit à la
-        recherche d'aligators, le tout à bord d'un aéroglisseur !
+        une visite des Everglades (marécages proches de Miami) de nuit à la
+        recherche d'alligators, le tout à bord d'un aéroglisseur !
       </div>
     ),
     image: miami,
@@ -371,20 +371,20 @@ export const List = () => (
         </ListText>
         <ListButton>
           <Zoom>
-          <Button
-            as="a"
-            href="https://www.kadolog.com/fr/list/voyage-de-noces-disney-world-universal-studio-road-trip-miami-keys"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Liste de mariage <FontAwesomeIcon icon="chevron-right" />
-          </Button>
-          <p>
-            Nous t'encourageons à payer par virement bancaire, les autres modes
-            de paiement sont soumis à un prélèvement de 2,4% de la part site. Si
-            te souhaites participer d'une autre manière, nous t'invitons à nous
-            contacter directement.
-          </p>
+            <Button
+              as="a"
+              href="https://www.kadolog.com/fr/list/voyage-de-noces-disney-world-universal-studio-road-trip-miami-keys"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Liste de mariage <FontAwesomeIcon icon="chevron-right" />
+            </Button>
+            <p>
+              Nous t'encourageons à payer par virement bancaire, les autres
+              modes de paiement sont soumis à un prélèvement de 2,4% de la part
+              site. Si te souhaites participer d'une autre manière, nous
+              t'invitons à nous contacter directement.
+            </p>
           </Zoom>
         </ListButton>
       </TextContainer>

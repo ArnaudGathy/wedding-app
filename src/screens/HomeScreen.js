@@ -219,7 +219,7 @@ export const HomeScreen = ({
         <MainBannerStripes>
           <MainBlock>
             <MainHeartBlock />
-            <Fade duration="4000">
+            <Fade duration="2000">
             <MainInfoBlock>
               <WeddingBlock>Mariage</WeddingBlock>
               <NameBlock>
@@ -249,7 +249,7 @@ export const HomeScreen = ({
         id="planning"
         title1="La"
         title2="journée"
-        subtitle="Nous avons choisi d'organiser le mariage à notre image et de se détacher un peu des conventions habituelles. Le thème sera centré sur la culture pop !"
+        subtitle="Nous avons choisi d'organiser le mariage à notre image et de nous détacher un peu des conventions habituelles. Le thème sera centré sur la culture pop !"
       >
         <Planning />
       </Section>

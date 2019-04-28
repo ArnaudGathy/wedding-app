@@ -170,7 +170,7 @@ export const RSVPScreen = ({codeName, reset}) => {
                   <h2>
                     Viens-tu accompagné{attendee.woman === false && 'e'} ?
                   </h2>
-                  <p>(Par quelqu'un qui n'a pas reçu d'invitation.)</p>
+                  <p>Par quelqu'un qui n'a pas reçu d'invitation.</p>
                   <Field name="hasGuest" component={CheckBox} type="checkbox" />
                 </>
               )}
@@ -180,7 +180,8 @@ export const RSVPScreen = ({codeName, reset}) => {
             >
               {step === 2 && values.hasGuest && (
                 <>
-                  <h2>Nom de l'invité(e) (requis)</h2>
+                  <h2>Nom de l'invité(e)</h2>
+                  <p>Champs obligatoire</p>
                   <Field name="guest" component="input" type="input" />
                 </>
               )}
@@ -194,7 +195,7 @@ export const RSVPScreen = ({codeName, reset}) => {
                     suivants
                   </h2>
                   <p>
-                    Aux quels sera tu présent{attendee.woman === false && 'e'} ?
+                    Au(x) quel(s) sera-tu présent{attendee.woman === false && 'e'} ?
                   </p>
                   <FieldsBox>
                   {Object.keys(attendee.invitation).map(name => (

@@ -243,7 +243,7 @@ const content = [
   {
     title: 'Cérémonie Laïque',
     text:
-      'Puisque le mariage n’est pas qu’une question de signature de documents, nous avons décidé d’organiser une petite cérémonie laïque. Notre officiant (pas si officiel) sera en charge de nous unir dans un cadre moins formel et plus décontracté qui nous correspond. Vous aurez également l’occasion de nous faire verser une larme en prononçant quelques mots si vous le souhaitez.',
+      'Puisque le mariage n’est pas qu’une question de signature de documents, nous avons décidé d’organiser une petite cérémonie laïque. Notre officiant (pas si officiel) sera chargé de nous unir dans un cadre moins formel et plus décontracté qui nous correspond. Vous aurez également l’occasion de nous faire verser une larme en prononçant quelques mots si vous le souhaitez.',
     location: 'Jardins @ Villatitude',
   },
   {
@@ -258,14 +258,14 @@ const content = [
     title: 'Dîner et activités',
     text:
       'Un buffet rempli de bonnes choses que l’on s’est fait un plaisir de choisir pour vous nous accueillera dès que les coupes de Champagne seront vides. \n' +
-      'Dès que nos estomacs seront repus, nous pourrons passer aux activités (parfois loufoques mais toujours amusantes !). Nous devrons malheureusement les interrompre pour couper le gâteau, mais est-ce vraiment un désagrément ?\n' +
-      'Après tout ce sucre, on repartira pour la fiesta jusqu’à ce qu’on se fasse jeter en dehors de la salle !\n',
+      'Dès que nos estomacs seront repus, nous pourrons passer aux activités (parfois loufoques, mais toujours amusantes !). Nous devrons malheureusement les interrompre pour couper le gâteau, mais est-ce vraiment un désagrément ?\n' +
+      'Après tout ce sucre, on repartira pour la fiesta jusqu’à se faire jeter en dehors de la salle !\n',
     location: 'Salon @ Villatitude',
   },
   {
     title: 'Fin des évènements',
     text:
-      'Cette journée est organisée à notre image, nous n’avons pas prévu de soirée dansante. Officiellement la journée s’arrête là, mais nous aurons éventuellement la possibilité de continuer en after party dans notre appartement si la journée ne nous a pas trop éprouvés.',
+      'Cette journée est organisée à notre image, nous n’avons pas prévu de soirée dansante. Officiellement, la journée s’arrête là, mais nous aurons éventuellement la possibilité de continuer en after party dans notre appartement si la journée ne nous a pas trop éprouvés.',
     location: "Magathy's home",
   },
 ]
