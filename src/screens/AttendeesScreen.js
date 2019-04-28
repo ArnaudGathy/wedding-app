@@ -184,7 +184,7 @@ export const AttendeesScreen = () => {
                   </button>
                 </td>
                 <td>
-                  <CopyToClipboard text={`https://magathy.party/${code}`}>
+                  <CopyToClipboard text={code}>
                     <button className="button is-primary is-small">Copy URL</button>
                   </CopyToClipboard>
                 </td>
