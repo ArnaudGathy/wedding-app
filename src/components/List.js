@@ -382,7 +382,7 @@ export const List = () => (
             <p>
               Nous t'encourageons à payer par virement bancaire, les autres
               modes de paiement sont soumis à un prélèvement de 2,4% de la part
-              site. Si te souhaites participer d'une autre manière, nous
+              site. Si tu souhaites participer d'une autre manière, nous
               t'invitons à nous contacter directement.
             </p>
           </Zoom>
