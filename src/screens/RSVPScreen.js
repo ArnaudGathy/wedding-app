@@ -9,6 +9,7 @@ import {CheckBoxField} from '../style/CheckBoxField'
 import {events} from '../assets/constants/events'
 import {NoCode} from './HomeScreen'
 import {Button} from '../components/Button'
+import axios from 'axios'
 
 const AppearRight = posed.div({
   hidden: {opacity: 0, x: 200},
@@ -49,10 +50,10 @@ const ButtonContainer = styled.div`
 `
 
 const FieldsBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-items: flex-start;
-    margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  margin: 2rem 0;
 `
 
 export const RSVPScreen = ({codeName, reset}) => {
@@ -65,6 +66,23 @@ export const RSVPScreen = ({codeName, reset}) => {
 
   if (entities.length < 1) {
     return <Spinner />
+  }
+
+  if (codeName === 'TonCodeSecret') {
+    return (
+      <NoCode>
+        <p>
+          <h2>
+            Le code "{codeName}" est un example. Remplace-le par le tiens ! Il
+            se trouve au dos de l'invitation
+            <br />
+            <a href="./#invitation" onClick={reset}>
+              Réessayer
+            </a>
+          </h2>
+        </p>
+      </NoCode>
+    )
   }
 
   if (!attendee) {
@@ -110,6 +128,15 @@ export const RSVPScreen = ({codeName, reset}) => {
             if (attendee.woman === false) {
               value.woman = false
             }
+            axios({
+              method: 'POST',
+              url: process.env.REACT_APP_DISCORD_HOOK,
+              data: {
+                content: `---------------------
+${data.name} a répondu ${data.attending ? '✅' : '❌'} à l'invitation.
+${data.hasGuest ? `Il sera accompagné de : ${data.guest}` : ''}`,
+              }
+            })
             return updateEntity({
               uid: attendee.uid,
               value,
@@ -195,18 +222,19 @@ export const RSVPScreen = ({codeName, reset}) => {
                     suivants
                   </h2>
                   <p>
-                    Au(x) quel(s) sera-tu présent{attendee.woman === false && 'e'} ?
+                    Au(x) quel(s) sera-tu présent
+                    {attendee.woman === false && 'e'} ?
                   </p>
                   <FieldsBox>
-                  {Object.keys(attendee.invitation).map(name => (
-                    <Field
-                      key={name}
-                      name={`invitation.${name}`}
-                      component={CheckBoxField}
-                      type="checkbox"
-                      title={events[name]}
-                    />
-                  ))}
+                    {Object.keys(attendee.invitation).map(name => (
+                      <Field
+                        key={name}
+                        name={`invitation.${name}`}
+                        component={CheckBoxField}
+                        type="checkbox"
+                        title={events[name]}
+                      />
+                    ))}
                   </FieldsBox>
                 </>
               )}
